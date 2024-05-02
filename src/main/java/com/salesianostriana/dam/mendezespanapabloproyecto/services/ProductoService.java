@@ -1,17 +1,11 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.services;
 
-import java.util.Arrays;
-import java.util.List;
 import org.springframework.stereotype.Service;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
+import com.salesianostriana.dam.mendezespanapabloproyecto.repositories.ProductoRepository;
+import com.salesianostriana.dam.mendezespanapabloproyecto.services.base.BaseServiceImpl;
 
 @Service
-public class ProductoService {
+public class ProductoService extends BaseServiceImpl<Producto, Long, ProductoRepository>{
 
-	public List<Producto> getLista() {
-		return Arrays.asList(
-				new Producto(),
-				new Producto()
-				);		
-	}
 }
