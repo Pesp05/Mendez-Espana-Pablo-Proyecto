@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!--Menú Horizontal-->
+
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" th:fragment="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-4" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Bicicletas</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">BICICLETAS DE CARETERA</a>
+                            <a class="dropdown-item" href="#">BICICLETAS DE MONTAÑA</a>
+                            <a class="dropdown-item" href="#">BICICLETAS GRAVEL</a>
+                            <a class="dropdown-item" href="#">BICICLETAS ELÉCTRICAS</a>
+                            <a class="dropdown-item" href="#">BICICLETAS URBANAS</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Componentes</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">PEDALES</a>
+                            <a class="dropdown-item" href="#">TRANSMISIÓN</a>
+                            <a class="dropdown-item" href="#">FRENOS</a>
+                            <a class="dropdown-item" href="#">RUEDAS Y LLANTAS</a>
+                            <a class="dropdown-item" href="#">CUBIERTAS</a>
+                            <a class="dropdown-item" href="#">CÁMARAS</a>
+                            <a class="dropdown-item" href="#">TUBELESS</a>
+                            <a class="dropdown-item" href="#">SUSPENSIONES</a>
+                            <a class="dropdown-item" href="#">HORQUILLAS RÍGIDAS</a>
+                            <a class="dropdown-item" href="#">MANILLARES</a>
+                            <a class="dropdown-item" href="#">POTENCIAS</a>
+                            <a class="dropdown-item" href="#">DIRECCIONES</a>
+                            <a class="dropdown-item" href="#">TIJAS</a>
+                            <a class="dropdown-item" href="#">SILLINES</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Ropa y equipamiento</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">ZAPATILLAS</a>
+                            <a class="dropdown-item" href="#">GAFAS</a>
+                            <a class="dropdown-item" href="#">CASCOS</a>
+                            <a class="dropdown-item" href="#">MAILLOT</a>
+                            <a class="dropdown-item" href="#">CULOTTE</a>
+                            <a class="dropdown-item" href="#">CHAQUETAS</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Accesorios</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">MOCHILA</a>
+                            <a class="dropdown-item" href="#">PROTECCIÓN</a>
+                            <a class="dropdown-item" href="#">LUCES</a>
+                            <a class="dropdown-item" href="#">PORTABOTELLAS</a>
+
+                        </div>
+                    </li>
+                    <form class="d-flex">
+                        <input class="form-control me-sm-2" type="search" placeholder="Búsqueda">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg></button>
+                    </form>
+                </ul>
+
+                <!--Modal Inicio Sesión-->
+
+                <button type="button" class="btn btn-secondary me-4" data-bs-toggle="modal" data-bs-target="#myModal">
+                    Iniciar Sesión
+                </button>
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-white">INICIAR SESIÓN</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <label for="nombre" class="form-label mt-4">Nombre de Usuario</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre Usuario">
+                                </div>
+                                <div>
+                                    <label for="contraseña" class="form-label mt-4">Contraseña</label>
+                                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña"
+                                        autocomplete="off">
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-success">INICIAR SESIÓN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </nav>
