@@ -20,14 +20,31 @@ public class ProductoController {
 	@GetMapping("/producto/nuevo")
 	public String showNewProductForm(Model model) {
 		Producto producto = new Producto();
-		model.addAttribute("productoForm", producto);
+		model.addAttribute("producto", producto);
 		return "formularioRegistroProducto";
 	}
 	
 	@PostMapping("/producto/nuevo/submit")
-	public String submit (@ModelAttribute("productoForm") Producto producto, Model model) {
-		model.addAttribute("producto", producto);
-		return "redirect:/portada";
+	public String submitNewProductoForm (@ModelAttribute("productoForm") Producto producto, Model model) {
+		productoService.save(producto);
+		return "redirect:/producto/nuevo";
+	}
+	
+	@GetMapping("/producto/editar/{id}")
+	public String showEditProductForm(@PathVariable("id") long id, Model model) {
+		Optional<Producto> aEditar = productoService.findById(id);
+		if(aEditar.isPresent()) {
+			model.addAttribute(aEditar);
+			return "formularioRegistroProducto";
+		} else {
+			return "redirect:/producto/nuevo";
+		}
+	}
+	
+	@PostMapping("/producto/editar/submit")
+	public String submitEditProductForm(@ModelAttribute("producto") Producto producto, Model model) {
+		productoService.edit(producto);
+		return "redirect:/producto/nuevo";
 	}
 	
 }
