@@ -7,5 +7,5 @@ import com.salesianostriana.dam.mendezespanapabloproyecto.services.base.BaseServ
 
 @Service
 public class ProductoService extends BaseServiceImpl<Producto, Long, ProductoRepository>{
-
+	
 }
