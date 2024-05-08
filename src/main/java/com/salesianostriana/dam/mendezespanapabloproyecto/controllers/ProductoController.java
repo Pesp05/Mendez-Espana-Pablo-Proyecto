@@ -21,13 +21,13 @@ public class ProductoController {
 	public String showNewProductForm(Model model) {
 		Producto producto = new Producto();
 		model.addAttribute("producto", producto);
-		return "formularioRegistroProducto";
+		return "admin/formularioRegistroProducto";
 	}
 	
 	@PostMapping("/producto/nuevo/submit")
 	public String submitNewProductoForm (@ModelAttribute("productoForm") Producto producto, Model model) {
 		productoService.save(producto);
-		return "redirect:/producto/nuevo";
+		return "redirect:admin/producto/nuevo";
 	}
 	
 	@GetMapping("/producto/editar/{id}")
@@ -35,7 +35,7 @@ public class ProductoController {
 		Optional<Producto> aEditar = productoService.findById(id);
 		if(aEditar.isPresent()) {
 			model.addAttribute(aEditar);
-			return "formularioRegistroProducto";
+			return "admin/formularioRegistroProducto";
 		} else {
 			return "redirect:/producto/nuevo";
 		}
