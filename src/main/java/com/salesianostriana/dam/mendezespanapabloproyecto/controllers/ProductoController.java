@@ -35,7 +35,7 @@ public class ProductoController {
 	@PostMapping("/producto/nuevo/submit")
 	public String submitNewProductoForm (@ModelAttribute("producto") Producto producto) {
 		productoService.save(producto);
-		return "admin/formularioRegistroProducto";
+		return "redirect:/producto/lista";
 	}
 	
 	@GetMapping("/producto/editar/{id}")
