@@ -24,7 +24,7 @@
 	                        <label for="nombreProducto">Nombre del producto</label>
 	                    </div>
 	                    <div class="form-floating mb-3 shadow">
-	                        <input type="text" class="form-control" id="precioFabrica" th:fielf="*{precioFabrica}" placeholder="Precio de fábrica">
+	                        <input type="number" min="0" step="0.01" class="form-control" id="precioFabrica" th:fielf="*{precioFabrica}" placeholder="Precio de fábrica">
 	                        <label for="precioFabrica">Precio de fábrica</label>
 	                    </div>
 	                    <div class="form-floating mb-3 shadow">
@@ -39,11 +39,11 @@
 	                <div class="col-6">
 	                    <div class="form-floating mb-3 shadow">
 	                        <select class="form-select" id="marca" th:fielf="*{marca}">
-	                            <option value="1">Marca 1</option>
-	                            <option value="2">Marca 2</option>
-	                            <option value="3">Marca 3</option>
-	                            <option value="4">Marca 4</option>
-	                            <option value="5">Marca 5</option>
+	                            <option value="M1">Marca 1</option>
+	                            <option value="M2">Marca 2</option>
+	                            <option value="M3">Marca 3</option>
+	                            <option value="M4">Marca 4</option>
+	                            <option value="M5">Marca 5</option>
 	                        </select>
 	                        <label for="marca">Marca</label>
 	                    </div>

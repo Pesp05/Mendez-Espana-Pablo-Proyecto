@@ -19,6 +19,12 @@ public class ProductoController {
 	@Autowired
 	private ProductoService productoService;
 	
+	@GetMapping("/producto/lista")
+	public String showAdminProductList(Model model) {
+		model.addAttribute("listaProductosAdmin", productoService.findAll());
+		return "admin/listaAdminProductos";
+	}
+	
 	@GetMapping("/producto/nuevo")
 	public String showNewProductForm(Model model) {
 		Producto producto = new Producto();
@@ -29,7 +35,7 @@ public class ProductoController {
 	@PostMapping("/producto/nuevo/submit")
 	public String submitNewProductoForm (@ModelAttribute("producto") Producto producto) {
 		productoService.save(producto);
-		return "admin/formularioRegistroProducto";
+		return "redirect:/producto/lista";
 	}
 	
 	@GetMapping("/producto/editar/{id}")
