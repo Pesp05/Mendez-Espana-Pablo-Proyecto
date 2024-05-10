@@ -1,26 +1,22 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
-import lombok.Getter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-public enum Marca {
-	
-	SHIMANO("Shimano"),
-	SPECIALIZED("Specialized"),
-	GHOST("Ghost"),
-	CANNONDALE("Cannondale"),
-	BH("BH"),
-	BTWIN("Btwin"),
-	MMR("MMR"),
-	ORBEA("Orbea"),
-	TREK("Trek"),
-	KTM("KTM"),
-	PINARELLO("Pinarello");
-	
-	private String nombre;
-	
-	private Marca(String nombre) {
-		this.nombre = nombre;
-	}
+@Entity
+@Data @NoArgsConstructor @AllArgsConstructor
+@Builder
+public class Marca {
 
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	private String marca;
+	
 }
