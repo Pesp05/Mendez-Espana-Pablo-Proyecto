@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -21,7 +23,12 @@ public class Producto {
 	private double precioVenta;
 	private double precioFabrica;
 	private String imagen;
-	private String marca;
 	private String descripcion;
+	
+	@Enumerated(value = EnumType.STRING)
+	private Marca marca;
+	
+	@Enumerated(value = EnumType.STRING)
+	private Categoria categoria;
 	
 }

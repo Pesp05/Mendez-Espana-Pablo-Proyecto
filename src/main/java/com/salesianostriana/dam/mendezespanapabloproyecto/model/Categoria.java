@@ -1,22 +1,20 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@Entity
-@Data @NoArgsConstructor @AllArgsConstructor
-@Builder
-public class Categoria {
-
-	@Id
-	@GeneratedValue
-	private Long id;
+@Getter
+public enum Categoria {
+	
+	BICICLETAS("Bicicleta"),
+	COMPONENTES("Componente"),
+	ROPAYEQUIPAMIENTO("Ropa y equipamiento"),
+	ACCESORIOS("Accesorio");
 	
 	private String nombre;
+	
+	private Categoria(String nombre) {
+		this.nombre = nombre;
+	}
+	
 	
 }

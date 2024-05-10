@@ -23,7 +23,7 @@
 	                <td class="col-3"></td>
 	            </tr>
 	            <tr class="shadow-sm" th:each="producto : ${listaProductosAdmin}">
-	                <td th:text="${producto.imagen}">Imagen</td>
+	                <td th:src="${producto.imagen}">Imagen</td>
 					<td th:text="${producto.nombre}">Nombre</td>
 					<td th:text="${#numbers.formatDecimal(producto.precioVenta, 1, 2,'COMMA')}">Precio</td>
 	            </tr>
