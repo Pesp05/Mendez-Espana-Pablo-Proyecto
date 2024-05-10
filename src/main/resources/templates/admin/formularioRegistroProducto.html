@@ -23,30 +23,45 @@
 	                        <input type="text" class="form-control" id="nombreProducto" th:field="*{nombre}" placeholder="Nombre del producto">
 	                        <label for="nombreProducto">Nombre del producto</label>
 	                    </div>
-	                    <div class="form-floating mb-3 shadow">
-	                        <input type="number" min="0" step="0.01" class="form-control" id="precioFabrica" th:fielf="*{precioFabrica}" placeholder="Precio de fábrica">
-	                        <label for="precioFabrica">Precio de fábrica</label>
-	                    </div>
-	                    <div class="form-floating mb-3 shadow">
-	                        <input type="text" class="form-control" id="precioVenta" th:fielf="*{precioVenta}" placeholder="Precio de venta">
-	                        <label for="precioVenta">Precio de venta</label>
-	                    </div>
-	                    <div class="form-floating mb-3 shadow">
-	                        <input type="text" class="form-control" id="imagen" th:fielf="*{imagen}" placeholder="URL Imágen">
-	                        <label for="imagen">URL Imágen</label>
-	                    </div>
+						<div class="form-floating mb-3 shadow">
+							<input type="text" class="form-control" id="preciofabrica" th:field="*{precioFabrica}" placeholder="Precio de fábrica">
+							<label for="precioVenta">Precio de fábrica</label>
+						</div>
+						<div class="form-floating mb-3 shadow">
+							<input type="text" class="form-control" id="precioVenta" th:field="*{precioVenta}" placeholder="Precio de venta">
+							<label for="precioVenta">Precio de venta</label>
+						</div>
+						<div class="form-floating mb-3 shadow">
+							<input type="text" class="form-control" id="imagen" th:field="*{imagen}" placeholder="Imagen">
+							<label for="imagen">Imagen</label>
+						</div>
 	                </div>
 	                <div class="col-6">
 	                    <div class="form-floating mb-3 shadow">
-	                        <select class="form-select" id="marca" th:fielf="*{marca}">
-	                            <option value="M1">Marca 1</option>
-	                            <option value="M2">Marca 2</option>
-	                            <option value="M3">Marca 3</option>
-	                            <option value="M4">Marca 4</option>
-	                            <option value="M5">Marca 5</option>
+	                        <select class="form-select" id="catgoria" th:field="*{categoria}">
+	                            <option value="BICICLETAS">Bicicleta</option>
+	                            <option value="COMPONENTES">Componente</option>
+	                            <option value="ROPAYEQUIPAMIENTO">Ropa y Equipamiento</option>
+	                            <option value="ACCESORIOS">Accesorio</option>
 	                        </select>
-	                        <label for="marca">Marca</label>
+	                        <label for="categoria">Categoría</label>
 	                    </div>
+						<div class="form-floating mb-3 shadow">
+							<select class="form-select" id="marca" th:field="*{marca}">
+					    		<option value="SHIMANO">Shimao</option>
+							    <option value="SPECIALIZED">Specialized</option>
+		                        <option value="GHOST">Ghost</option>
+							    <option value="CANNONDALE">Cannondale</option>
+								<option value="BH">BH</option>
+								<option value="BTWIN">Btwin</option>
+								<option value="MMR">MMR</option>
+								<option value="ORBEA">Orbea</option>
+								<option value="TREK">Trek</option>
+								<option value="KTM">KTM</option>
+								<option value="PINARELLO">Pinarello</option>
+							</select>
+							<label for="marca">Marca</label>
+						</div>
 	                    <div class="form-floating mb-3 shadow">
 	                        <textarea class="form-control" id="descripcion" rows="4" th:field="*{descripcion}"></textarea>
 	                        <label for="descripcion">Descripción</label>
