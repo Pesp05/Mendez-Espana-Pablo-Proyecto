@@ -1,0 +1,15 @@
+INSERT INTO Talla (id, talla) VALUES (1, 'S');
+INSERT INTO Talla (id, talla) VALUES (2, 'M');
+INSERT INTO Talla (id, talla) VALUES (3, 'L');
+INSERT INTO Talla (id, talla) VALUES (4, 'XL');
+INSERT INTO Talla (id, talla) VALUES (5, 'XXL');
+INSERT INTO Marca (id, marca) VALUES (1, 'Marca 1');
+INSERT INTO Marca (id, marca) VALUES (2, 'Marca 2');
+INSERT INTO Marca (id, marca) VALUES (3, 'Marca 3');
+INSERT INTO Marca (id, marca) VALUES (4, 'Marca 4');
+INSERT INTO Marca (id, marca) VALUES (5, 'Marca 5');
+INSERT INTO Color (id, color) VALUES (1, 'Rojo');
+INSERT INTO Color (id, color) VALUES (2, 'Azul');
+INSERT INTO Color (id, color) VALUES (3, 'Verde');
+INSERT INTO Color (id, color) VALUES (4, 'Negro');
+INSERT INTO Color (id, color) VALUES (5, 'Blanco');
