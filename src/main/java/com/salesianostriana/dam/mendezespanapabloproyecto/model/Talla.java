@@ -18,7 +18,7 @@ public class Talla {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	
 	private String talla;
 	

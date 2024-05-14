@@ -1,7 +1,7 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
-import java.util.List;
 
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -18,7 +18,7 @@ public class Color {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	
 	private String color;
 	

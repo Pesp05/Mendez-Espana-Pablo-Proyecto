@@ -14,7 +14,7 @@ public abstract class Usuario {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	
 	private String nombreUsuario;
 	private String password;
