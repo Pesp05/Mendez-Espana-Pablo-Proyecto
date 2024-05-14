@@ -7,31 +7,26 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
-	@Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.builder()
-        		.username("admin")
-        		.password("{noop}admin")
-        		.roles("ADMIN")
-            .build();
-        return new InMemoryUserDetailsManager(user);
-    }
+	private final UserDetailsService userDetailsService;
+	private final PasswordEncoder passwordEncoder;
+	
 	
 	@Bean 
 	public DaoAuthenticationProvider daoAuthenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-		provider.setUserDetailsService(userDetailsService());
-		provider.setPasswordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
+		provider.setUserDetailsService(userDetailsService);
+		provider.setPasswordEncoder(passwordEncoder);
 		return provider;
 	}
 	
@@ -48,17 +43,24 @@ public class SecurityConfig {
 		
 	}
 	
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		
-		http.authorizeHttpRequests(
-				(authz) -> authz
-				.requestMatchers("/css/**", "/js/**").permitAll()
-				.anyRequest().authenticated())
-			.formLogin((loginz) -> loginz
-					.loginPage("/login").permitAll());
+	 @Bean
+	    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	        http.authorizeHttpRequests(
+	                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/img/**").permitAll()
+	                                .requestMatchers("/admin/**").hasRole("ADMIN")
+	                                .anyRequest().authenticated())
+	                .formLogin((loginz) -> loginz
+	                        .loginPage("/login").defaultSuccessUrl("/index").permitAll())
+	                .logout((logoutz) -> logoutz
+	                        .logoutUrl("/logout")
+	                        .logoutSuccessUrl("/login")
+	                        .permitAll());
 
-		return http.build();
-	}
+	        http.csrf(csrfz -> csrfz.disable());
+	        http.headers(headersz -> headersz
+	                .frameOptions(frameOptionsz -> frameOptionsz.disable()));
+
+	        return http.build();
+	    }
 	
 }
