@@ -13,12 +13,12 @@
 	<nav th:replace="~{fragmentos/navbar::navbar}"></nav>
 	
 	<!--Formulario registro-->
-	    <div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 900px;">
+	    <div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 1200px;">
 	        <div class="card-header">Registro de productos</div>
 	        <div class="card-body">
-	            <form class="row" th:action="@{/producto/nuevo/submit}" th:object="${producto}" method="post">
+	            <form class="row" th:action="${producto.id != 0} ? @{/producto/editar/submit} : @{/producto/nuevo/submit}" th:object="${producto}" method="post">
 					<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
-					<div class="col-6">
+					<div class="col-4">
 	                    <div class="form-floating mb-3 shadow">
 	                        <input type="text" class="form-control" id="nombreProducto" th:field="*{nombre}" placeholder="Nombre del producto">
 	                        <label for="nombreProducto">Nombre del producto</label>
@@ -36,9 +36,9 @@
 							<label for="imagen">Imagen</label>
 						</div>
 	                </div>
-	                <div class="col-6">
+	                <div class="col-4">
 	                    <div class="form-floating mb-3 shadow">
-	                        <select class="form-select" id="catgoria" th:field="*{categoria}">
+	                        <select class="form-select" id="categoria" th:field="*{categoria}">
 	                            <option value="BICICLETAS">Bicicleta</option>
 	                            <option value="COMPONENTES">Componente</option>
 	                            <option value="ROPAYEQUIPAMIENTO">Ropa y Equipamiento</option>
@@ -46,26 +46,32 @@
 	                        </select>
 	                        <label for="categoria">Categoría</label>
 	                    </div>
-						<div class="form-floating mb-3 shadow">
-							<select class="form-select" id="marca" th:field="*{marca}">
-					    		<option value="SHIMANO">Shimao</option>
-							    <option value="SPECIALIZED">Specialized</option>
-		                        <option value="GHOST">Ghost</option>
-							    <option value="CANNONDALE">Cannondale</option>
-								<option value="BH">BH</option>
-								<option value="BTWIN">Btwin</option>
-								<option value="MMR">MMR</option>
-								<option value="ORBEA">Orbea</option>
-								<option value="TREK">Trek</option>
-								<option value="KTM">KTM</option>
-								<option value="PINARELLO">Pinarello</option>
-							</select>
-							<label for="marca">Marca</label>
-						</div>
 	                    <div class="form-floating mb-3 shadow">
 	                        <textarea class="form-control" id="descripcion" rows="4" th:field="*{descripcion}"></textarea>
 	                        <label for="descripcion">Descripción</label>
 	                    </div>
+						<div class="form-floating mb-3 shadow">
+							<select class="form-select" id="marca" th:field="*{marca.id}">
+							    <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.marca}">Marca</option>
+							</select>
+						    <label for="marca">Marca</label>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="row">
+							<label for="colores"><strong>Colores</strong></label>
+							<div class="col-3 form-check form-check-inline" th:each="color : ${colores}">
+						    	<input class="form-check-input" type="checkbox" th:id="${'color_' + color.id}" th:value="${color.id}" th:field="*{colores}" />
+						    	<label class="form-check-label" th:for="${'color_' + color.id}" th:text="${color.color}"></label>
+							</div>
+						</div>
+						<div class="row">
+							<label for="tallas"><strong>Tallas</strong></label>
+							<div class="col-3 form-check form-check-inline" th:each="talla : ${tallas}">
+						    	<input class="form-check-input" type="checkbox" th:id="${'talla_' + talla.id}" th:value="${talla.id}" th:field="*{tallas}" />
+						    	<label class="form-check-label" th:for="${'talla_' + talla.id}" th:text="${talla.talla}"></label>
+							</div>
+						</div>	
 	                    <button type="submit" class="btn btn-success shadow-lg col-12">Registrar</button>
 	                </div>
 	            </form>

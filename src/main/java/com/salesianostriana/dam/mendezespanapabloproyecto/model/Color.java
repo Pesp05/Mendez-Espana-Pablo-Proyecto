@@ -5,7 +5,7 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class Marca {
+public class Color {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 	
-	private String marca;
+	private String color;
 	
-	@OneToMany(mappedBy = "marca")
-    private List<Producto> productos;
+	@ManyToMany(mappedBy = "colores")
+	private List<Producto> productos;
 	
 }
