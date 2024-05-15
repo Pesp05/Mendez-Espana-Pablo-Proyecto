@@ -20,22 +20,16 @@ public class ColorController {
 	@Autowired
 	private ColorService colorService;
 	
-	@GetMapping("/lista")
-	public String showAdminColorList(Model model) {
-		model.addAttribute("listaColoresAdmin", colorService.findAll());
-		return "admin/listaAdminColores";
-	}
-	
 	@GetMapping("/nuevo")
 	public String showNewColorForm(Model model) {
 		model.addAttribute("color", new Color());
-		return "admin/formularioRegistroTalla";
+		return "admin/formularioRegistroColor";
 	}
 	
 	@PostMapping("/nuevo/submit")
 	public String submitNewColorForm (@ModelAttribute("color") Color color) {
 		colorService.save(color);
-		return "redirect:/color/lista";
+		return "redirect:/admin/lista/variantes";
 	}
 	
 	@GetMapping("/borrar/{id}")
@@ -43,9 +37,9 @@ public class ColorController {
         Optional<Color> color = colorService.findById(id);
         if(color.isPresent()) {
             colorService.delete(color.get());
-            return "redirect:/color/lista";
+            return "redirect:/admin/lista/variantes";
         } else {
-            return "redirect:/color/lista";
+            return "redirect:/admin/lista/variantes";
         }
     }
 	

@@ -1,11 +1,8 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,11 +15,8 @@ public class Marca {
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
-	private String marca;
-	
-	@OneToMany(mappedBy = "marca")
-    private List<Producto> productos;
+	private String nombre;
 	
 }

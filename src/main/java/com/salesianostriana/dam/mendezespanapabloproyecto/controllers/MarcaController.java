@@ -20,12 +20,6 @@ public class MarcaController {
 	@Autowired
 	private MarcaService marcaService;
 	
-	@GetMapping("/lista")
-	public String showAdminBrandList(Model model) {
-		model.addAttribute("listaMarcasAdmin", marcaService.findAll());
-		return "admin/listaAdminMarcas";
-	}
-	
 	@GetMapping("/nuevo")
 	public String showNewBrandForm(Model model) {
 		model.addAttribute("marca", new Marca());
@@ -35,7 +29,7 @@ public class MarcaController {
 	@PostMapping("/nuevo/submit")
 	public String submitNewBrandForm (@ModelAttribute("marca") Marca marca) {
 		marcaService.save(marca);
-		return "redirect:/marca/lista";
+		return "redirect:/admin/lista/variantes";
 	}
 	
 	@GetMapping("/borrar/{id}")
@@ -43,9 +37,9 @@ public class MarcaController {
         Optional<Marca> marca = marcaService.findById(id);
         if(marca.isPresent()) {
             marcaService.delete(marca.get());
-            return "redirect:/marca/lista";
+            return "redirect:/admin/lista/variantes";
         } else {
-            return "redirect:/marca/lista";
+            return "redirect:/admin/lista/variantes";
         }
     }
 	
