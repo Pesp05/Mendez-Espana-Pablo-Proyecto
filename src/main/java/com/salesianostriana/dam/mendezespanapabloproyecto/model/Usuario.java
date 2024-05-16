@@ -23,7 +23,7 @@ public class Usuario implements UserDetails{
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
 	private String username;
 	private String password;

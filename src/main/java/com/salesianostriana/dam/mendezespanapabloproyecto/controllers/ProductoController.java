@@ -32,12 +32,7 @@ public class ProductoController {
 
     @Autowired
     private TallaService tallaService;
-	
-	@GetMapping("/lista")
-	public String showAdminProductList(Model model) {
-		model.addAttribute("listaProductosAdmin", productoService.findAll());
-		return "admin/listaAdminProductos";
-	}
+    
 	
 	@GetMapping("/nuevo")
 	public String showNewProductForm(Model model) {
@@ -52,7 +47,7 @@ public class ProductoController {
 	@PostMapping("/nuevo/submit")
 	public String submitNewProductoForm (@ModelAttribute("producto") Producto producto) {
 		productoService.save(producto);
-		return "redirect:/producto/lista";
+		return "redirect:/admin/lista/producto";
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -66,14 +61,14 @@ public class ProductoController {
 	        model.addAttribute("tallas", tallaService.findAll());
 			return "admin/formularioRegistroProducto";
 		} else {
-			return "redirect:/producto/nuevo";
+			return "redirect:/admin/lista/producto";
 		}
 	}
 	
 	@PostMapping("/editar/submit")
 	public String submitEditProductForm(@ModelAttribute("producto") Producto producto) {
 		productoService.edit(producto);
-		return "redirect:/producto/lista";
+		return "redirect:/admin/lista/producto";
 	}
 	
 	@GetMapping("/borrar/{id}")
@@ -81,9 +76,9 @@ public class ProductoController {
         Optional<Producto> producto = productoService.findById(id);
         if(producto.isPresent()) {
             productoService.delete(producto.get());
-            return "redirect:/producto/lista";
+            return "redirect:/admin/lista/producto";
         } else {
-            return "redirect:/producto/lista";
+            return "redirect:/admin/lista/producto";
         }
     }
 }

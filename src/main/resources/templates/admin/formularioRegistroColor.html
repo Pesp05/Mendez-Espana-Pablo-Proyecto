@@ -14,14 +14,14 @@
 	
 	<!--Formulario registro-->
 	<div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 600px;">
-		        <div class="card-header">Registro de Tallas</div>
+		        <div class="card-header">Registro de Colores</div>
 		        <div class="card-body">
-		            <form class="row" th:action="@{/marca/nuevo/submit}" th:object="${marca}" method="post">
-						<input th:if="${marca.id != 0}" type="hidden" name="id" th:field="*{id}" />
+		            <form class="row" th:action="@{/color/nuevo/submit}" th:object="${color}" method="post">
+						<input th:if="${color.id != 0}" type="hidden" name="id" th:field="*{id}" />
 						<div class="col-12">
 		                    <div class="form-floating mb-3 shadow">
-		                        <input type="text" class="form-control" id="nombreMarca" th:field="*{nombre}" placeholder="Marca">
-		                        <label for="nombreMarca">Marca</label>
+		                        <input type="text" class="form-control" id="nombreColor" th:field="*{nombre}" placeholder="Color">
+		                        <label for="nombreColor">Color</label>
 		                    </div>
 		                    <button type="submit" class="btn btn-success shadow-lg col-12">Registrar</button>
 		                </div>

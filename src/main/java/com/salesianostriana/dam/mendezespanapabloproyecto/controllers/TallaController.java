@@ -20,12 +20,6 @@ public class TallaController {
 	@Autowired
 	private TallaService tallaService;
 	
-	@GetMapping("/lista")
-	public String showAdminSizeList(Model model) {
-		model.addAttribute("listaTallasAdmin", tallaService.findAll());
-		return "admin/listaAdminTallas";
-	}
-	
 	@GetMapping("/nuevo")
 	public String showNewSizeForm(Model model) {
 		model.addAttribute("talla", new Talla());
@@ -33,9 +27,9 @@ public class TallaController {
 	}
 	
 	@PostMapping("/nuevo/submit")
-	public String submitNewSizeForm (@ModelAttribute("marca") Talla talla) {
+	public String submitNewSizeForm (@ModelAttribute("talla") Talla talla) {
 		tallaService.save(talla);
-		return "redirect:/talla/lista";
+		return "redirect:/admin/lista/variantes";
 	}
 	
 	@GetMapping("/borrar/{id}")
@@ -43,9 +37,9 @@ public class TallaController {
         Optional<Talla> talla = tallaService.findById(id);
         if(talla.isPresent()) {
             tallaService.delete(talla.get());
-            return "redirect:/talla/lista";
+            return "redirect:/admin/lista/variantes";
         } else {
-            return "redirect:/talla/lista";
+            return "redirect:/admin/lista/variantes";
         }
     }
 	
