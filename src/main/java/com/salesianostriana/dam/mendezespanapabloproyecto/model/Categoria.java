@@ -16,5 +16,4 @@ public enum Categoria {
 		this.nombre = nombre;
 	}
 	
-	
 }

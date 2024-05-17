@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ColorService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.MarcaService;
@@ -33,6 +34,13 @@ public class ProductoController {
     @Autowired
     private TallaService tallaService;
     
+
+    @GetMapping("/vista/{categoria}")
+    public String showProductsBicicleta(@PathVariable("categoria") String categoria, Model model) {
+    	Categoria c = Categoria.valueOf(categoria.toUpperCase());
+    	model.addAttribute("productos", productoService.buscarPorCategoria(c));
+    	return "vistaProductosGeneral";
+    }
 	
 	@GetMapping("/nuevo")
 	public String showNewProductForm(Model model) {

@@ -52,7 +52,7 @@
 	                    </div>
 						<div class="form-floating mb-3 shadow">
 							<select class="form-select" id="marca" th:field="*{marca.id}">
-							    <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.marca}">Marca</option>
+							    <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.nombre}">Marca</option>
 							</select>
 						    <label for="marca">Marca</label>
 						</div>
@@ -62,14 +62,14 @@
 							<label for="colores"><strong>Colores</strong></label>
 							<div class="col-3 form-check form-check-inline" th:each="color : ${colores}">
 						    	<input class="form-check-input" type="checkbox" th:id="${'color_' + color.id}" th:value="${color.id}" th:field="*{colores}" />
-						    	<label class="form-check-label" th:for="${'color_' + color.id}" th:text="${color.color}"></label>
+						    	<label class="form-check-label" th:for="${'color_' + color.id}" th:text="${color.nombre}"></label>
 							</div>
 						</div>
 						<div class="row">
 							<label for="tallas"><strong>Tallas</strong></label>
 							<div class="col-3 form-check form-check-inline" th:each="talla : ${tallas}">
 						    	<input class="form-check-input" type="checkbox" th:id="${'talla_' + talla.id}" th:value="${talla.id}" th:field="*{tallas}" />
-						    	<label class="form-check-label" th:for="${'talla_' + talla.id}" th:text="${talla.talla}"></label>
+						    	<label class="form-check-label" th:for="${'talla_' + talla.id}" th:text="${talla.nombre}"></label>
 							</div>
 						</div>	
 	                    <button type="submit" class="btn btn-success shadow-lg col-12">Registrar</button>
