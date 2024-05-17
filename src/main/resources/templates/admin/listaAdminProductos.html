@@ -13,8 +13,9 @@
 	<nav th:replace="~{fragmentos/adminNavbar::adminNavbar}"></nav>
 	
 	<!--Tabla-->
-	    <div class="mx-auto w-75">
-	        <h1 class="mx-5">Productos</h1>
+	    <div class="mx-auto w-75 align-items-center">
+			<h2 class="mx-3 mb-0">Productos</h2>
+			<a th:href="@{/producto/nuevo}" class="btn btn-info btn-sm">Añadir producto</a>
 	        <table class="w-75 mx-auto shadow-lg">
 	            <tr class="border-bottom">
 	                <td class="col-1"><strong>Imagen</strong></td>

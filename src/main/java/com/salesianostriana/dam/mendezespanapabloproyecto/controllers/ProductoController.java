@@ -38,7 +38,7 @@ public class ProductoController {
     @GetMapping("/vista/{categoria}")
     public String showProductsBicicleta(@PathVariable("categoria") String categoria, Model model) {
     	Categoria c = Categoria.valueOf(categoria.toUpperCase());
-    	model.addAttribute("producto", productoService.buscarPorCategoria(c));
+    	model.addAttribute("productos", productoService.buscarPorCategoria(c));
     	return "vistaProductosGeneral";
     }
 	
