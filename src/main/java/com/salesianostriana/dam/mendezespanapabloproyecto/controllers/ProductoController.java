@@ -35,8 +35,20 @@ public class ProductoController {
     private TallaService tallaService;
     
 
+    @GetMapping("/{id}")
+    public String showDetailedProduct(@PathVariable("id") long id, Model model) {
+    	Optional<Producto> aMostrar = productoService.findById(id);
+    	if(aMostrar.isPresent()) {
+    		Producto producto = aMostrar.get();
+    		model.addAttribute("producto", producto);
+    		return "vistaProductosDetallada";
+    	} else {
+    		return "vistaProductosDetallada";
+    	}
+    }
+    
     @GetMapping("/vista/{categoria}")
-    public String showProductsBicicleta(@PathVariable("categoria") String categoria, Model model) {
+    public String showProductsByCategory(@PathVariable("categoria") String categoria, Model model) {
     	Categoria c = Categoria.valueOf(categoria.toUpperCase());
     	model.addAttribute("productos", productoService.buscarPorCategoria(c));
     	return "vistaProductosGeneral";
