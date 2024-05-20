@@ -3,6 +3,7 @@ package com.salesianostriana.dam.mendezespanapabloproyecto.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,6 +56,12 @@ public class UsuarioController {
 	public String submitEditUserById(@ModelAttribute("usuario") Usuario usuario) {
 		usuarioService.edit(usuario);
 		return "redirect:/portada";
+	}
+	
+	@GetMapping("/perfil")
+	public String viewUserProfile(@AuthenticationPrincipal Usuario usuario, Model model) {
+		model.addAttribute("usuario", usuario);
+		return "user/vistaPerfil";
 	}
 	
 }
