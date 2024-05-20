@@ -15,7 +15,7 @@
 	<!--Tabla-->
 	    <div class="mx-auto w-75 align-items-center">
 			<h2 class="mx-3 mb-0">Productos</h2>
-			<a th:href="@{/producto/nuevo}" class="btn btn-info btn-sm">Añadir producto</a>
+			<a th:href="@{/admin/producto/nuevo}" class="btn btn-info btn-sm">Añadir producto</a>
 	        <table class="w-75 mx-auto shadow-lg">
 	            <tr class="border-bottom">
 	                <td class="col-1"><strong>Imagen</strong></td>
@@ -28,8 +28,8 @@
 					<td th:text="${producto.nombre}">Nombre</td>
 					<td th:text="${#numbers.formatDecimal(producto.precioVenta, 1, 2,'COMMA')}">Precio</td>
 					<td>
-						<a th:href="@{/producto/editar/{id}(id = ${producto.id})}" class="btn btn-warning btn-sm me-2">Editar</a>
-					    <a th:href="@{/producto/borrar/{id}(id = ${producto.id})}" class="btn btn-danger btn-sm">Borrar</a>
+						<a th:href="@{/admin/producto/editar/{id}(id = ${producto.id})}" class="btn btn-warning btn-sm me-2">Editar</a>
+					    <a th:href="@{/admin/producto/borrar/{id}(id = ${producto.id})}" class="btn btn-danger btn-sm">Borrar</a>
 					</td>
 	            </tr>
 	            <tr>

@@ -16,7 +16,7 @@
 	    <div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 1200px;">
 	        <div class="card-header">Registro de productos</div>
 	        <div class="card-body">
-	            <form class="row" th:action="${producto.id != 0} ? @{/producto/editar/submit} : @{/producto/nuevo/submit}" th:object="${producto}" method="post">
+	            <form class="row" th:action="${producto.id != 0} ? @{/admin/producto/editar/submit} : @{/admin/producto/nuevo/submit}" th:object="${producto}" method="post">
 					<input th:if="${producto.id != 0}" type="hidden" name="id" th:field="*{id}" />
 					<div class="col-4">
 	                    <div class="form-floating mb-3 shadow">
@@ -36,42 +36,42 @@
 							<label for="imagen">Imagen</label>
 						</div>
 	                </div>
-	                <div class="col-4">
-	                    <div class="form-floating mb-3 shadow">
-	                        <select class="form-select" id="categoria" th:field="*{categoria}">
-	                            <option value="BICICLETAS">Bicicleta</option>
-	                            <option value="COMPONENTES">Componente</option>
-	                            <option value="ROPAYEQUIPAMIENTO">Ropa y Equipamiento</option>
-	                            <option value="ACCESORIOS">Accesorio</option>
-	                        </select>
-	                        <label for="categoria">Categoría</label>
-	                    </div>
-	                    <div class="form-floating mb-3 shadow">
-	                        <textarea class="form-control" id="descripcion" rows="4" th:field="*{descripcion}"></textarea>
-	                        <label for="descripcion">Descripción</label>
-	                    </div>
-						<div class="form-floating mb-3 shadow">
-							<select class="form-select" id="marca" th:field="*{marca.id}">
-							    <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.nombre}">Marca</option>
-							</select>
-						    <label for="marca">Marca</label>
-						</div>
-					</div>
 					<div class="col-4">
-						<div class="row">
-							<label for="colores"><strong>Colores</strong></label>
-							<div class="col-3 form-check form-check-inline" th:each="color : ${colores}">
-						    	<input class="form-check-input" type="checkbox" th:id="${'color_' + color.id}" th:value="${color.id}" th:field="*{colores}" />
-						    	<label class="form-check-label" th:for="${'color_' + color.id}" th:text="${color.nombre}"></label>
-							</div>
-						</div>
-						<div class="row">
-							<label for="tallas"><strong>Tallas</strong></label>
-							<div class="col-3 form-check form-check-inline" th:each="talla : ${tallas}">
-						    	<input class="form-check-input" type="checkbox" th:id="${'talla_' + talla.id}" th:value="${talla.id}" th:field="*{tallas}" />
-						    	<label class="form-check-label" th:for="${'talla_' + talla.id}" th:text="${talla.nombre}"></label>
-							</div>
-						</div>	
+							                    <div class="form-floating mb-3 shadow">
+							                        <select class="form-select" id="categoria" th:field="*{categoria}">
+							                            <option value="BICICLETAS">Bicicleta</option>
+							                            <option value="COMPONENTES">Componente</option>
+							                            <option value="ROPAYEQUIPAMIENTO">Ropa y Equipamiento</option>
+							                            <option value="ACCESORIOS">Accesorio</option>
+							                        </select>
+							                        <label for="categoria">Categoría</label>
+							                    </div>
+							                    <div class="form-floating mb-3 shadow">
+							                        <textarea class="form-control" id="descripcion" rows="4" th:field="*{descripcion}"></textarea>
+							                        <label for="descripcion">Descripción</label>
+							                    </div>
+												<div class="form-floating mb-3 shadow">
+													<select class="form-select" id="marca" th:field="*{marca.id}">
+													    <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.nombre}">Marca</option>
+													</select>
+												    <label for="marca">Marca</label>
+												</div>
+											</div>
+											<div class="col-4">
+												<div class="row">
+													<label for="colores"><strong>Colores</strong></label>
+													<div class="col-3 form-check form-check-inline" th:each="color : ${colores}">
+												    	<input class="form-check-input" type="checkbox" th:id="${'color_' + color.id}" th:value="${color.id}" th:field="*{colores}" />
+												    	<label class="form-check-label" th:for="${'color_' + color.id}" th:text="${color.nombre}"></label>
+													</div>
+												</div>
+												<div class="row">
+													<label for="tallas"><strong>Tallas</strong></label>
+													<div class="col-3 form-check form-check-inline" th:each="talla : ${tallas}">
+												    	<input class="form-check-input" type="checkbox" th:id="${'talla_' + talla.id}" th:value="${talla.id}" th:field="*{tallas}" />
+												    	<label class="form-check-label" th:for="${'talla_' + talla.id}" th:text="${talla.nombre}"></label>
+													</div>
+												</div>
 	                    <button type="submit" class="btn btn-success shadow-lg col-12">Registrar</button>
 	                </div>
 	            </form>

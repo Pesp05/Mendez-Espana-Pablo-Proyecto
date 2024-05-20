@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,6 +28,10 @@ public class Usuario implements UserDetails{
 	
 	private String username;
 	private String password;
+	
+	private String email;
+	private LocalDate fechaNacimiento;
+	private String dni;
 	
 	private boolean admin;
 	

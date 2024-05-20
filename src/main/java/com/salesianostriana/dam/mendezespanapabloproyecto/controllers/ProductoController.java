@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
@@ -19,7 +18,6 @@ import com.salesianostriana.dam.mendezespanapabloproyecto.services.ProductoServi
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.TallaService;
 
 @Controller
-@RequestMapping("/producto")
 public class ProductoController {
 	
 	@Autowired
@@ -35,7 +33,7 @@ public class ProductoController {
     private TallaService tallaService;
     
 
-    @GetMapping("/{id}")
+    @GetMapping("/producto/{id}")
     public String showDetailedProduct(@PathVariable("id") long id, Model model) {
     	Optional<Producto> aMostrar = productoService.findById(id);
     	if(aMostrar.isPresent()) {
@@ -47,14 +45,14 @@ public class ProductoController {
     	}
     }
     
-    @GetMapping("/vista/{categoria}")
+    @GetMapping("/producto/vista/{categoria}")
     public String showProductsByCategory(@PathVariable("categoria") String categoria, Model model) {
     	Categoria c = Categoria.valueOf(categoria.toUpperCase());
     	model.addAttribute("productos", productoService.buscarPorCategoria(c));
     	return "vistaProductosGeneral";
     }
 	
-	@GetMapping("/nuevo")
+	@GetMapping("/admin/producto/nuevo")
 	public String showNewProductForm(Model model) {
 		Producto producto = new Producto();
 		model.addAttribute("producto", producto);
@@ -64,13 +62,13 @@ public class ProductoController {
 		return "admin/formularioRegistroProducto";
 	}
 	
-	@PostMapping("/nuevo/submit")
+	@PostMapping("/admin/producto/nuevo/submit")
 	public String submitNewProductoForm (@ModelAttribute("producto") Producto producto) {
 		productoService.save(producto);
 		return "redirect:/admin/lista/producto";
 	}
 	
-	@GetMapping("/editar/{id}")
+	@GetMapping("/admin/producto/editar/{id}")
 	public String showEditProductForm(@PathVariable("id") long id, Model model) {
 		Optional<Producto> aEditar = productoService.findById(id);
 		if(aEditar.isPresent()) {
@@ -85,13 +83,13 @@ public class ProductoController {
 		}
 	}
 	
-	@PostMapping("/editar/submit")
+	@PostMapping("/admin/producto/editar/submit")
 	public String submitEditProductForm(@ModelAttribute("producto") Producto producto) {
 		productoService.edit(producto);
 		return "redirect:/admin/lista/producto";
 	}
 	
-	@GetMapping("/borrar/{id}")
+	@GetMapping("/admin/producto/borrar/{id}")
     public String deleteProduct(@PathVariable("id") long id) {
         Optional<Producto> producto = productoService.findById(id);
         if(producto.isPresent()) {
