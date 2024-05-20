@@ -56,8 +56,9 @@ public class SecurityConfig {
 		 	RequestCache requestCache = new NullRequestCache();
 		 
 	        http.authorizeHttpRequests(
-	                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/img/**").permitAll()
-	                                .requestMatchers("/admin/**").hasRole("ADMIN")
+	                        (authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/img/**", "/", "/portada", "/producto/**", "/usuario/nuevo/**").permitAll()
+	                                .requestMatchers("/admin/**")
+	                                .hasRole("ADMIN")
 	                                .anyRequest().authenticated())
 	        						.requestCache(cache -> cache.requestCache(requestCache))
 	                .formLogin((loginz) -> loginz

@@ -16,7 +16,7 @@
 	<div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 600px;">
 		        <div class="card-header">Registro de Colores</div>
 		        <div class="card-body">
-		            <form class="row" th:action="@{/color/nuevo/submit}" th:object="${color}" method="post">
+		            <form class="row" th:action="@{/admin/color/nuevo/submit}" th:object="${color}" method="post">
 						<input th:if="${color.id != 0}" type="hidden" name="id" th:field="*{id}" />
 						<div class="col-12">
 		                    <div class="form-floating mb-3 shadow">

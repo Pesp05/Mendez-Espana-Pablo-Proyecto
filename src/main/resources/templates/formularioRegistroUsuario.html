@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="d-flex flex-column justify-content-between min-vh-100">
+
+	<nav th:replace="~{fragmentos/navbar::navbar}"></nav>
+	
+	<!--Formulario registro-->
+		    <div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 1200px;">
+		        <div class="card-header">Registro de usuario</div>
+		        <div class="card-body">
+		            <form class="row" th:action="${usuario.id != 0} ? @{/usuario/nuevo/submit} : @{/usuario/editar/submit}" th:object="${usuario}" method="post">
+						<input th:if="${usuario.id != 0}" type="hidden" name="id" th:field="*{id}" />
+						<div class="col-6">
+		                    <div class="form-floating mb-3 shadow">
+		                        <input type="text" class="form-control" id="nombreUsuario" th:field="*{username}" placeholder="Nombre de usuario">
+		                        <label for="nombreUsuario">Nombre de usuario</label>
+		                    </div>
+							<div class="form-floating mb-3 shadow">
+								<input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Email">
+								<label for="email">Email</label>
+							</div>
+							<div class="form-floating mb-3 shadow">
+								<input type="text" class="form-control" id="dni" th:field="*{dni}" placeholder="DNI">
+								<label for="dni">DNI</label>
+							</div>
+							<div class="form-floating mb-3 shadow">
+								<input type="date" class="form-control" id="fechaNac" th:field="*{fechaNacimiento}" placeholder="Fecha de nacimiento">
+								<label for="fechaNac">Fecha de nacimiento</label>
+							</div>
+		                </div>
+		                <div class="col-6">
+							<div class="form-floating mb-3 shadow">
+								<input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Contraseña">
+								<label for="password">Contraseña</label>
+							</div>
+		                    <button type="submit" class="btn btn-success shadow-lg col-12">Registrar</button>
+		                </div>
+		            </form>
+		        </div>
+		    </div>
+	
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+	
+</body>
+
+</html>
