@@ -41,4 +41,6 @@ public class Producto {
 	@Enumerated(value = EnumType.STRING)
 	private Categoria categoria;
 	
+	//Helpers
+	
 }

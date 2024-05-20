@@ -27,9 +27,9 @@ public class AdminController {
 	@Autowired
 	private ColorService colorService;
 
-	@GetMapping("/")
-	public String index() {
-		return "adminMainMenu";
+	@GetMapping("/menu")
+	public String showAdminMenu() {
+		return "admin/adminMenu";
 	}
 	
 	@GetMapping("/lista/producto")

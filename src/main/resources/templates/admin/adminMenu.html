@@ -9,16 +9,7 @@
 </head>
 
 <body class="d-flex flex-column justify-content-between min-vh-100">
+	
+	<nav th:replace="~{fragmentos/adminNavbar::adminNavbar}"></nav>
 
-	<nav th:replace="~{fragmentos/navbar::navbar}"></nav>
-	
-	<div class="w-25 mx-auto">
-		<form method="POST" action="#" th:action="@{/login}">
-			<input type="text" id="username" name="username" placeholder="Username" required autofocus> 
-			<input type="password" name="password" id="password" placeholder="Password" required>
-			<input type="submit" name="enviar" value="Enviar" />
-		</form>
-	</div>
-	<footer th:replace="~{fragmentos/footer::footer}"></footer>
-	
 </body>
