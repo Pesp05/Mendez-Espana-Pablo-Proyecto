@@ -12,8 +12,38 @@
 	
 	<nav th:replace="~{fragmentos/userNavbar::userNavbar}"></nav>
 	
-	
-	
+	<div class="row">
+		<div th:replace="~{fragmentos/userProfileAside::userProfileAside}"></div>
+		<div class="card bg-secondary mb-3 mx-auto shadow-lg col-4" style="height: 400px; margin-top: 50px;">
+	            <div class="card-header">Mi Perfil</div>
+	            <div class="card-body">
+	                <form class="row" th:action="@{/usuario/perfil}" th:object="${usuario}" method="post">
+	                    <div class="col-3">
+	                        <div class="form-floating mb-3 shadow">
+	                            <img th:src="@{${usuario.fotoPerfil}}" style="width: 100px;">
+	                        </div>
+	                        <div class="form-floating mb-3 shadow">
+	                            <h2 sec:authentication="name">User</h2>
+	                        </div>
+	                    </div>
+	                    <div class="col-9">
+	                        <div class="form-floating mb-3 shadow">
+	                            <input type="text" class="form-control" id="email" th:field="*{email}" placeholder="Email" disabled="">
+	                            <label for="email">Email</label>
+	                        </div>
+	                        <div class="form-floating mb-3 shadow">
+	                            <input type="text" class="form-control" id="dni" th:field="*{dni}" placeholder="DNI" disabled="">
+	                            <label for="dni">DNI</label>
+	                        </div>
+	                        <div class="form-floating mb-3 shadow">
+	                            <input type="text" class="form-control" id="fechaNac" th:field="*{fechaNacimiento}" placeholder="Fecha de nacimiento" disabled="">
+	                            <label for="fechaNac">Fecha de nacimiento</label>
+	                        </div>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
 </body>
