@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="./../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../../static/js/validacionFormularioTalla.js" defer></script>
 </head>
 
 <body class="d-flex flex-column justify-content-between min-vh-100">
@@ -16,7 +17,7 @@
 	<div class="card bg-secondary mb-3 mx-auto shadow-lg" style="width: 600px;">
 		        <div class="card-header">Registro de Tallas</div>
 		        <div class="card-body">
-		            <form class="row" th:action="@{/admin/talla/nuevo/submit}" th:object="${talla}" method="post">
+		            <form id="registroTallaForm" class="row" th:action="@{/admin/talla/nuevo/submit}" th:object="${talla}" method="post">
 						<input th:if="${talla.id != 0}" type="hidden" name="id" th:field="*{id}" />
 						<div class="col-12">
 		                    <div class="form-floating mb-3 shadow">
@@ -32,3 +33,16 @@
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
 </body>
+
+<script>
+    document.getElementById('registroTallaForm').addEventListener('submit', function(event) {
+        let nombreTalla = document.getElementById('nombreTalla').value.trim();
+
+        if (nombreTalla === '') {
+            alert('Por favor, rellena el campo de calla.');
+            event.preventDefault();
+        }
+    });
+</script>
+
+</html>

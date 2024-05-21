@@ -37,13 +37,9 @@
 							<a class="nav-link" th:href="@{/producto/vista/ACCESORIOS}">Accesorios</a>
 						</li>
 	                    <li class="nav-item dropdown">
-	                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-	                            aria-haspopup="true" aria-expanded="false">Quienes somos</a>
-	                        <div class="dropdown-menu">
-	                            <a class="dropdown-item" href="#">EL NEGOCIO</a>
-	                            <a class="dropdown-item" href="#">EL DUEÑO</a>
-	                            <a class="dropdown-item" href="#">NUESTROS PROVEEDORES</a>
-	                        </div>
+							<li class="nav-item">
+								<a class="nav-link" th:href="@{/quienessomos}">Quienes somos</a>
+							</li>
 	                    </li>
 	                    <form class="d-flex">
 	                        <input class="form-control me-sm-2" type="search" placeholder="Búsqueda">
@@ -63,8 +59,6 @@
 	                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
 	                        </svg>
 	                    </button>
-	
-	                
 	
 						<li class="nav-item dropdown">
 							<form th:action="@{/logout}" method="POST" id="logoutForm"></form>

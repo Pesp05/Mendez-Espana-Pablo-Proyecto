@@ -16,4 +16,9 @@ public class WelcomeController {
 		return "error";
 	}
 	
+	@GetMapping("/quienessomos")
+	public String showInfo() {
+		return "negocioInfo";
+	}
+	
 }

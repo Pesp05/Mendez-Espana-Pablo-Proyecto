@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="d-flex flex-column justify-content-between min-vh-100">
+	
+	<div sec:authorize="hasRole('ROLE_USER')">
+		<nav th:replace="~{fragmentos/userNavbar::userNavbar}"></nav>
+	</div>
+	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		<nav th:replace="~{fragmentos/adminNavbar::adminNavbar}"></nav>
+	</div>
+	<div sec:authorize="!isAuthenticated()">
+		<nav th:replace="~{fragmentos/navbar::navbar}"></nav>
+	</div>
+	
+	<main>
+		<h1>El negocio</h1>
+		<p>En el corazón de la vibrante ciudad de Sevilla, entre las estrechas calles adoquinadas y los majestuosos edificios que cuentan historias de siglos pasados, se encuentra un lugar donde la pasión por el ciclismo se fusiona con la elegancia y la funcionalidad. Bienvenido a Gearglide, más que una simple tienda de bicicletas, es un santuario para los amantes del ciclismo que buscan explorar Sevilla y sus alrededores con estilo y comodidad.
+		
+		Desde su modesto comienzo hasta convertirse en un referente en la comunidad ciclista sevillana, Gearglide ha sido un faro para aquellos que buscan más que una bicicleta, una experiencia completa. Fundada hace más de una década por un grupo de entusiastas del ciclismo local, la tienda ha crecido hasta convertirse en un destino imprescindible para todos los que buscan calidad, servicio y pasión por el pedaleo.
+		
+		Al entrar en Gearglide, te envuelve una atmósfera acogedora impregnada del olor a nuevo de las bicicletas y el suave murmullo de las conversaciones entre los clientes y el personal experto. El diseño interior combina a la perfección la modernidad con toques rústicos, creando un ambiente que invita a explorar y descubrir. Las paredes están adornadas con fotografías de ciclistas explorando los paisajes de Sevilla y sus alrededores, recordatorios constantes de las infinitas posibilidades que ofrece la región para los amantes del ciclismo.
+		
+		El corazón de Gearglide es su impresionante colección de bicicletas cuidadosamente seleccionadas que van desde las elegantes bicicletas urbanas hasta las robustas bicicletas de montaña y las ágiles bicicletas de carretera. Cada modelo ha sido elegido por su calidad, rendimiento y estilo único, asegurando que haya una opción para satisfacer las necesidades y los gustos de cada ciclista. Marcas de renombre mundial se mezclan con joyas locales, creando una oferta diversa que garantiza que cada cliente encuentre la bicicleta perfecta para sus aventuras.
+		
+		El compromiso de Gearglide con la excelencia se extiende más allá de la selección de bicicletas. Su equipo de expertos en ciclismo está compuesto por apasionados del pedal que están dedicados a ayudar a los clientes a encontrar la bicicleta ideal y brindarles el soporte necesario para que disfruten al máximo de sus viajes. Ya sea que seas un ciclista experimentado o estés dando tus primeras pedaladas, el equipo de Gearglide está ahí para guiarte, asesorarte y compartir su conocimiento para que puedas tomar decisiones informadas y sentirte seguro en la carretera.
+		
+		Pero Gearglide no es solo una tienda de bicicletas, es un centro de comunidad donde los ciclistas se reúnen para compartir su pasión, intercambiar historias y planificar nuevas aventuras. Con regularidad, la tienda organiza eventos como paseos grupales, charlas sobre técnicas de ciclismo y talleres de mantenimiento de bicicletas, creando un espacio donde los ciclistas de todas las edades y habilidades pueden conectarse y aprender unos de otros. Estos eventos no solo fortalecen el vínculo entre Gearglide y la comunidad ciclista, sino que también fomentan un sentido de camaradería y apoyo mutuo entre los entusiastas del ciclismo.
+		
+		Además de su excepcional servicio al cliente y su sólida selección de productos, Gearglide se destaca por su compromiso con la sostenibilidad y la responsabilidad ambiental. Conscientes del impacto que la industria del ciclismo puede tener en el medio ambiente, se han asociado con proveedores que comparten sus valores y buscan reducir su huella ecológica. Desde el embalaje hasta los materiales de fabricación, cada aspecto de la operación de Gearglide se examina cuidadosamente para minimizar su impacto ambiental y promover prácticas comerciales sostenibles.
+		
+		Pero la verdadera esencia de Gearglide no se encuentra en sus productos o servicios, sino en la pasión que impulsa a cada persona que forma parte de esta familia ciclista. Desde los fundadores hasta los empleados y los clientes, todos comparten un amor profundo por el ciclismo y un deseo compartido de explorar el mundo sobre dos ruedas. Esta pasión se refleja en cada interacción, cada recomendación y cada sonrisa, creando un ambiente único que hace que Gearglide sea mucho más que una simple tienda de bicicletas, es un hogar para los ciclistas de Sevilla y más allá.
+		
+		En resumen, Gearglide es mucho más que una tienda de bicicletas; es un oasis para los amantes del ciclismo en Sevilla. Con su amplia selección de bicicletas de calidad, su equipo experto y su compromiso con la sostenibilidad, la tienda ofrece una experiencia incomparable para aquellos que buscan explorar la ciudad y sus alrededores sobre dos ruedas. Ya sea que estés buscando tu primera bicicleta o seas un ciclista experimentado en busca de una actualización, Gearglide te da la bienvenida con los brazos abiertos y te invita a unirte a esta apasionada comunidad de ciclistas que llaman a Sevilla su hogar.</p>
+	</main>
+	
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+	
+</body>

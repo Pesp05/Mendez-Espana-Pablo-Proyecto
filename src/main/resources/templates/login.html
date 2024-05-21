@@ -13,6 +13,7 @@
 	<nav th:replace="~{fragmentos/navbar::navbar}"></nav>
 	
 	<div class="w-25 mx-auto">
+		<h1>INICIO DE SESIÓN</h1>
 		<form method="POST" action="#" th:action="@{/login}">
 			<input type="text" id="username" name="username" placeholder="Username" required autofocus> 
 			<input type="password" name="password" id="password" placeholder="Password" required>
