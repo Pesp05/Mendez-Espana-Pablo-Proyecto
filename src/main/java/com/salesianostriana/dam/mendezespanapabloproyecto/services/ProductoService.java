@@ -16,4 +16,8 @@ public class ProductoService extends BaseServiceImpl<Producto, Long, ProductoRep
 		return repository.productosPorCategoria(categoria);
 	}
 	
+	public List<Producto> buscarPorNombre(String nombre){
+		return repository.productosPorNombre(nombre);
+	}
+	
 }

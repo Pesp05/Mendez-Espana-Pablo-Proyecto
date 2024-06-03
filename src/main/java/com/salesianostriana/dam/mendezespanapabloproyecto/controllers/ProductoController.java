@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
@@ -49,6 +50,12 @@ public class ProductoController {
     public String showProductsByCategory(@PathVariable("categoria") String categoria, Model model) {
     	Categoria c = Categoria.valueOf(categoria.toUpperCase());
     	model.addAttribute("productos", productoService.buscarPorCategoria(c));
+    	return "vistaProductosGeneral";
+    }
+    
+    @GetMapping("/producto/search")
+    public String showProductsByName(@RequestParam("nombre") String nombre, Model model) {
+    	model.addAttribute("productos", productoService.buscarPorNombre(nombre));
     	return "vistaProductosGeneral";
     }
 	
