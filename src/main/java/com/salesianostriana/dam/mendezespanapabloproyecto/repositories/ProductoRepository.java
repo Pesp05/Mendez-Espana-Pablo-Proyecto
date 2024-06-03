@@ -12,4 +12,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>{
 	@Query("select p from Producto p where p.categoria = :categoria")
 	public List<Producto> productosPorCategoria(@Param("categoria") Categoria categoria);
 	
+	@Query("select p from Producto p where p.categoria = :categoria and p.precioVenta < :precioVenta and p.marca = :marca")
+	public List<Producto>
+	
 }
