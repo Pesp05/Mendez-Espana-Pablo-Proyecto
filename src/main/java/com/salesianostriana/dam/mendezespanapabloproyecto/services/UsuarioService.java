@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,10 @@ public class UsuarioService extends BaseServiceImpl<Usuario, Long, UsuarioReposi
     t.setPassword(passwordEncoder.encode(t.getPassword()));
         
         return super.save(t);
+    }
+    
+    public Optional<Usuario> findIfUsernameExists(String username){
+    	return repository.findFirstByUsername(username);
     }
 	
 }

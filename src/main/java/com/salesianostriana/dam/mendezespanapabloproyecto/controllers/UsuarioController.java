@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -28,8 +30,13 @@ public class UsuarioController {
 	
 	@PostMapping("/nuevo/submit")
 	public String submitNewUserForm(@ModelAttribute("usuario") Usuario usuario) {
-		usuarioService.save(usuario);
-		return "redirect:/login";
+		Optional<Usuario> existingUser = usuarioService.findIfUsernameExists(usuario.getUsername());
+		if(existingUser.isEmpty()) {
+			usuarioService.save(usuario);
+			return "redirect:/login";
+		} else {
+			return "redirect:/usuario/nuevo";
+		}
 	}
 	
 	@GetMapping("/editar")
