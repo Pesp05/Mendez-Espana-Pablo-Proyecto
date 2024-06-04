@@ -57,7 +57,7 @@ public class Producto {
 	@Enumerated(value = EnumType.STRING)
 	private Categoria categoria;
 	
-	//Helpers
+	/*Helpers
 	public void addToMarca(Marca marca) {
 		this.marca = marca;
 		marca.getProductos().add(this);
@@ -87,5 +87,5 @@ public class Producto {
 		t.getProductos().remove(this);
 		this.tallas.remove(t);
 	}
-	
+	*/
 }

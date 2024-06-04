@@ -25,11 +25,11 @@ public class Color {
 	private Long id;
 	
 	private String nombre;
-	
+	/*
 	@ManyToMany(mappedBy="colores", fetch = FetchType.EAGER)
 	@Builder.Default
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	private List<Producto> productos = new ArrayList<>();
-
+*/
 }
