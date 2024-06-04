@@ -1,7 +1,7 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -43,7 +43,7 @@ public class Producto {
 			inverseJoinColumns = @JoinColumn(name="color_id")
 	)
 	@Builder.Default
-	private List<Color> colores = new ArrayList<>();
+	private Set<Color> colores = new HashSet<>();
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
@@ -52,40 +52,9 @@ public class Producto {
 			inverseJoinColumns = @JoinColumn(name="talla_id")
 	)
 	@Builder.Default
-	private List<Talla> tallas = new ArrayList<>();
+	private Set<Talla> tallas = new HashSet<>();
 	
 	@Enumerated(value = EnumType.STRING)
 	private Categoria categoria;
 	
-	/*Helpers
-	public void addToMarca(Marca marca) {
-		this.marca = marca;
-		marca.getProductos().add(this);
-	}
-	
-	public void removeFromCurso(Marca marca) {
-		marca.getProductos().remove(this);
-		this.marca = null;		
-	}
-	
-	public void addColor(Color c) {
-		this.colores.add(c);
-		c.getProductos().add(this);
-	}
-	
-	public void removeColor(Color c) {
-		c.getProductos().remove(this);
-		this.colores.remove(c);
-	}
-	
-	public void addTalla(Talla t) {
-		this.tallas.add(t);
-		t.getProductos().add(this);
-	}
-	
-	public void removeTalla(Talla t) {
-		t.getProductos().remove(this);
-		this.tallas.remove(t);
-	}
-	*/
 }
