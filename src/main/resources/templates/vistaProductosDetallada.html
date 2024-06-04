@@ -28,7 +28,23 @@
 						<p th:text="${producto.descripcion}" class="card-text"></p>
 					</div>
 					<div class="col-6">
-						<form>
+						<h2 class="row" th:text"${#numbers.formatDecimal(producto.precioVenta, 1, 2,'COMMA')}">Precio</h2>
+						<form class="row" id="seleccionVariantes" th:action="@{/portada}" th:object="${producto}" method="post">
+							<div class="row">
+								<label for="colores"><strong>Colores</strong></label>
+								<div class="col-3 form-check form-check-inline" th:each="color : ${colores}">
+									<input class="form-check-input" type="checkbox" th:id="${'color_' + color.id}" th:value="${color.id}" th:field="*{colores}" />
+									<label class="form-check-label" th:for="${'color_' + color.id}" th:text="${color.nombre}"></label>
+								</div>
+							</div>
+							<div class="row">
+								<label for="tallas"><strong>Tallas</strong></label>
+								<div class="col-3 form-check form-check-inline" th:each="talla : ${tallas}">
+									<input class="form-check-input" type="checkbox" th:id="${'talla_' + talla.id}" th:value="${talla.id}" th:field="*{tallas}" />
+									<label class="form-check-label" th:for="${'talla_' + talla.id}" th:text="${talla.nombre}"></label>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-success shadow-lg col-12">Comprar</button>
 						</form>
 					</div>
 		        </div>
@@ -37,3 +53,43 @@
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
 </body>
+
+<script>
+	
+	document.addEventListener("DOMContentLoaded", function() {
+	    const checkboxesColores = document.querySelectorAll('input[type="checkbox"][name="colores"]');
+	    const checkboxesTallas = document.querySelectorAll('input[type="checkbox"][name="tallas"]');
+	
+	    checkboxesColores.forEach(function(checkbox) {
+	        checkbox.addEventListener('change', function() {
+	            checkboxesColores.forEach(function(currentCheckbox) {
+	                if (currentCheckbox !== checkbox) {
+	                    currentCheckbox.checked = false;
+	                }
+	            });
+	        });
+	    });
+	
+	    checkboxesTallas.forEach(function(checkbox) {
+	        checkbox.addEventListener('change', function() {
+	            checkboxesTallas.forEach(function(currentCheckbox) {
+	                if (currentCheckbox !== checkbox) {
+	                    currentCheckbox.checked = false;
+	                }
+	            });
+	        });
+	    });
+	});
+	
+	function desmarcarCheckboxes() {
+	       checkboxesColores.forEach(function(checkbox) {
+	           checkbox.checked = false;
+	       });
+	       checkboxesTallas.forEach(function(checkbox) {
+	           checkbox.checked = false;
+	       });
+	   }
+	
+	desmarcarCheckboxes();
+	
+</script>
