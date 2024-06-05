@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Color;
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.CompraProductoForm;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Talla;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ColorService;
@@ -41,12 +42,15 @@ public class ProductoController {
     public String showDetailedProduct(@PathVariable("id") long id, Model model) {
     	Optional<Producto> aMostrar = productoService.findById(id);
     	if(aMostrar.isPresent()) {
+    		//LineaVenta lv = new LineaVenta();
+    		CompraProductoForm compraProductoForm = new CompraProductoForm();
     		Producto producto = aMostrar.get();
     		List<Color> coloresDisponibles = productoService.buscarColoresDisponibles(id);
     		List<Talla> tallasDisponibles = productoService.buscarTallasDisponibles(id);
     		model.addAttribute("producto", producto);
     		model.addAttribute("colores", coloresDisponibles);
     		model.addAttribute("tallas", tallasDisponibles);
+    		model.addAttribute("lineaVenta", compraProductoForm);
     		return "vistaProductosDetallada";
     	} else {
     		return "vistaProductosDetallada";
