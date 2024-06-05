@@ -12,7 +12,5 @@ public class CompraProductoForm {
 	private Talla talla;
 	private Color color;
 	private int cantidad;
-	
-	
 
 }
