@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Color;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.CompraProductoForm;
-import com.salesianostriana.dam.mendezespanapabloproyecto.model.LineaVenta;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Talla;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ColorService;
-import com.salesianostriana.dam.mendezespanapabloproyecto.services.LineaVentaService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.MarcaService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ProductoService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.TallaService;
@@ -38,15 +36,11 @@ public class ProductoController {
 
     @Autowired
     private TallaService tallaService;
-    
-    @Autowired
-    private LineaVentaService lineaVentaService;
 
     @GetMapping("/producto/{id}")
     public String showDetailedProduct(@PathVariable("id") long id, Model model) {
     	Optional<Producto> aMostrar = productoService.findById(id);
     	if(aMostrar.isPresent()) {
-    		//LineaVenta lv = new LineaVenta();
     		CompraProductoForm compraProductoForm = new CompraProductoForm();
     		Producto producto = aMostrar.get();
     		List<Color> coloresDisponibles = productoService.buscarColoresDisponibles(id);
@@ -60,14 +54,6 @@ public class ProductoController {
     		return "vistaProductosDetallada";
     	}
     }
-    
-    /*
-    @GetMapping("/producto/toVenta")
-    public String submitProductToCarrito(@ModelAttribute("lineaVenta") CompraProductoForm compraProductoForm) {
-    	LineaVenta lv = new LineaVenta(compraProductoForm, LineaVenta.calcularSubtotal());
-    	lineaVentaService.save(lv);
-    }
-    */
     
     @GetMapping("/producto/vista/{categoria}")
     public String showProductsByCategory(@PathVariable("categoria") String categoria, Model model) {
