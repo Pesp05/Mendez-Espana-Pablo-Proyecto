@@ -44,6 +44,7 @@ public class Usuario implements UserDetails{
 	@OneToMany(mappedBy="usuario", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
+	@Builder.Default
 	private List<Venta> ventas = new ArrayList<>();
 	
 	@Override

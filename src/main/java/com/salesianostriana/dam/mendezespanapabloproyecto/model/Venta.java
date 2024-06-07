@@ -29,11 +29,12 @@ public class Venta {
 	@OneToMany(mappedBy="venta", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	private List<CompraProductoForm> listaLineasVenta = new ArrayList<>();
+	@Builder.Default
+	private List<LineaVenta> listaLineasVenta = new ArrayList<>();
 	
 	private boolean isFinished;
 	
 	@ManyToOne
-	private Usuario user;
+	private Usuario usuario;
 	
 }

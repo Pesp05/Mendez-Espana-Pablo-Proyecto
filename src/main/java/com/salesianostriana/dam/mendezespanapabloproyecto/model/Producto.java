@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -17,7 +19,9 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -58,7 +62,10 @@ public class Producto {
 	@Enumerated(value = EnumType.STRING)
 	private Categoria categoria;
 	
-	@OneToMany
-	private CompraProductoForm lineaVenta;
+	@OneToMany(mappedBy="producto", fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@Builder.Default
+	private List<LineaVenta> lineasVenta = new ArrayList<>();
 	
 }

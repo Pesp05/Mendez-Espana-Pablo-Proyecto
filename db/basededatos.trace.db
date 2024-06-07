@@ -22325,3 +22325,1571 @@ INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcio
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:03:20.809907+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:03:20.829354+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'), [42001-224]
+2024-06-07 10:03:20.833344+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'), [42001-224]
+2024-06-07 10:03:20.836335+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'), [42001-224]
+2024-06-07 10:03:20.839328+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'), [42001-224]
+2024-06-07 10:03:20.842347+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS') [42001-224]
+2024-06-07 10:03:20.846309+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Talla (producto_id, talla_id) VALUES [42001-224]
+2024-06-07 10:03:20.848304+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 1), (1, 2), (1, 3), (1, 4), (1, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 1), (1, 2), (1, 3), (1, 4), (1, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), [42001-224]
+2024-06-07 10:03:20.852293+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 1), (2, 2), (2, 3), (2, 4), (2, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 1), (2, 2), (2, 3), (2, 4), (2, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 1), (2, 2), (2, 3), (2, 4), (2, 5), [42001-224]
+2024-06-07 10:03:20.854315+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 1), (3, 2), (3, 3), (3, 4), (3, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 1), (3, 2), (3, 3), (3, 4), (3, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 1), (3, 2), (3, 3), (3, 4), (3, 5), [42001-224]
+2024-06-07 10:03:20.858277+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 1), (4, 2), (4, 3), (4, 4), (4, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 1), (4, 2), (4, 3), (4, 4), (4, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 1), (4, 2), (4, 3), (4, 4), (4, 5), [42001-224]
+2024-06-07 10:03:20.861269+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 1), (5, 2), (5, 3), (5, 4), (5, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 1), (5, 2), (5, 3), (5, 4), (5, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 1), (5, 2), (5, 3), (5, 4), (5, 5) [42001-224]
+2024-06-07 10:03:20.866255+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Color (producto_id, color_id) VALUES [42001-224]
+2024-06-07 10:03:20.869249+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 1), (1, 2), (1, 3), (1, 4), (1, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 1), (1, 2), (1, 3), (1, 4), (1, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), [42001-224]
+2024-06-07 10:03:20.872244+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 1), (2, 2), (2, 3), (2, 4), (2, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 1), (2, 2), (2, 3), (2, 4), (2, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 1), (2, 2), (2, 3), (2, 4), (2, 5), [42001-224]
+2024-06-07 10:03:20.875232+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 1), (3, 2), (3, 3), (3, 4), (3, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 1), (3, 2), (3, 3), (3, 4), (3, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 1), (3, 2), (3, 3), (3, 4), (3, 5), [42001-224]
+2024-06-07 10:03:20.878229+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 1), (4, 2), (4, 3), (4, 4), (4, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 1), (4, 2), (4, 3), (4, 4), (4, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 1), (4, 2), (4, 3), (4, 4), (4, 5), [42001-224]
+2024-06-07 10:03:20.881216+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 1), (5, 2), (5, 3), (5, 4), (5, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 1), (5, 2), (5, 3), (5, 4), (5, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 1), (5, 2), (5, 3), (5, 4), (5, 5) [42001-224]
+2024-06-07 10:03:20.883219+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:03:20.887199+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'), [42001-224]
+2024-06-07 10:03:20.890192+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'), [42001-224]
+2024-06-07 10:03:20.892200+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'), [42001-224]
+2024-06-07 10:03:20.896175+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'), [42001-224]
+2024-06-07 10:03:20.898170+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES') [42001-224]
+2024-06-07 10:03:20.901162+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Talla (producto_id, talla_id) VALUES [42001-224]
+2024-06-07 10:03:20.903157+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 5), (7, 5), (8, 5), (9, 5), (10, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 5), (7, 5), (8, 5), (9, 5), (10, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 5), (7, 5), (8, 5), (9, 5), (10, 5) [42001-224]
+2024-06-07 10:03:20.905151+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Color (producto_id, color_id) VALUES [42001-224]
+2024-06-07 10:03:20.907146+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 1), (6, 2), (6, 3), (6, 4), (6, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 1), (6, 2), (6, 3), (6, 4), (6, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 1), (6, 2), (6, 3), (6, 4), (6, 5), [42001-224]
+2024-06-07 10:03:20.909141+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 1), (7, 2), (7, 3), (7, 4), (7, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 1), (7, 2), (7, 3), (7, 4), (7, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 1), (7, 2), (7, 3), (7, 4), (7, 5), [42001-224]
+2024-06-07 10:03:20.911136+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 1), (8, 2), (8, 3), (8, 4), (8, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 1), (8, 2), (8, 3), (8, 4), (8, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 1), (8, 2), (8, 3), (8, 4), (8, 5), [42001-224]
+2024-06-07 10:03:20.915125+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 1), (9, 2), (9, 3), (9, 4), (9, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 1), (9, 2), (9, 3), (9, 4), (9, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 1), (9, 2), (9, 3), (9, 4), (9, 5), [42001-224]
+2024-06-07 10:03:20.917142+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 1), (10, 2), (10, 3), (10, 4), (10, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 1), (10, 2), (10, 3), (10, 4), (10, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 1), (10, 2), (10, 3), (10, 4), (10, 5) [42001-224]
+2024-06-07 10:03:20.919114+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:03:20.924101+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:03:20.928091+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:03:20.931083+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:03:20.934074+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:03:20.936069+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO') [42001-224]
+2024-06-07 10:03:20.938063+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Talla (producto_id, talla_id) VALUES [42001-224]
+2024-06-07 10:03:20.941055+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 1), (11, 2), (11, 3), (11, 4), (11, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 1), (11, 2), (11, 3), (11, 4), (11, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 1), (11, 2), (11, 3), (11, 4), (11, 5), [42001-224]
+2024-06-07 10:03:20.943050+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 1), (12, 2), (12, 3), (12, 4), (12, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 1), (12, 2), (12, 3), (12, 4), (12, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 1), (12, 2), (12, 3), (12, 4), (12, 5), [42001-224]
+2024-06-07 10:03:20.945045+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 1), (13, 2), (13, 3), (13, 4), (13, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 1), (13, 2), (13, 3), (13, 4), (13, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 1), (13, 2), (13, 3), (13, 4), (13, 5), [42001-224]
+2024-06-07 10:03:20.947039+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 1), (14, 2), (14, 3), (14, 4), (14, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 1), (14, 2), (14, 3), (14, 4), (14, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 1), (14, 2), (14, 3), (14, 4), (14, 5), [42001-224]
+2024-06-07 10:03:20.950032+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 1), (15, 2), (15, 3), (15, 4), (15, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 1), (15, 2), (15, 3), (15, 4), (15, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 1), (15, 2), (15, 3), (15, 4), (15, 5) [42001-224]
+2024-06-07 10:03:20.954020+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Color (producto_id, color_id) VALUES [42001-224]
+2024-06-07 10:03:20.956015+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 1), (11, 2), (11, 3), (11, 4), (11, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 1), (11, 2), (11, 3), (11, 4), (11, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 1), (11, 2), (11, 3), (11, 4), (11, 5), [42001-224]
+2024-06-07 10:03:20.958010+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 1), (12, 2), (12, 3), (12, 4), (12, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 1), (12, 2), (12, 3), (12, 4), (12, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 1), (12, 2), (12, 3), (12, 4), (12, 5), [42001-224]
+2024-06-07 10:03:20.961002+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 1), (13, 2), (13, 3), (13, 4), (13, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 1), (13, 2), (13, 3), (13, 4), (13, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 1), (13, 2), (13, 3), (13, 4), (13, 5), [42001-224]
+2024-06-07 10:03:20.962997+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 1), (14, 2), (14, 3), (14, 4), (14, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 1), (14, 2), (14, 3), (14, 4), (14, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 1), (14, 2), (14, 3), (14, 4), (14, 5), [42001-224]
+2024-06-07 10:03:20.964991+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 1), (15, 2), (15, 3), (15, 4), (15, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 1), (15, 2), (15, 3), (15, 4), (15, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 1), (15, 2), (15, 3), (15, 4), (15, 5) [42001-224]
+2024-06-07 10:03:20.966985+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:03:20.968981+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:03:20.971973+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:03:20.972970+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:03:20.974965+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:03:20.977957+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS') [42001-224]
+2024-06-07 10:03:20.979951+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Talla (producto_id, talla_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Talla (producto_id, talla_id) VALUES [42001-224]
+2024-06-07 10:03:20.981945+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 5), (17, 5), (18, 5), (19, 5), (20, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 5), (17, 5), (18, 5), (19, 5), (20, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 5), (17, 5), (18, 5), (19, 5), (20, 5) [42001-224]
+2024-06-07 10:03:20.983941+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; se esperaba "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "INSERT INTO Producto_Color (producto_id, color_id) VALUES[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO Producto_Color (producto_id, color_id) VALUES [42001-224]
+2024-06-07 10:03:20.985935+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 1), (16, 2), (16, 3), (16, 4), (16, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 1), (16, 2), (16, 3), (16, 4), (16, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 1), (16, 2), (16, 3), (16, 4), (16, 5), [42001-224]
+2024-06-07 10:03:20.987930+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 1), (17, 2), (17, 3), (17, 4), (17, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 1), (17, 2), (17, 3), (17, 4), (17, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 1), (17, 2), (17, 3), (17, 4), (17, 5), [42001-224]
+2024-06-07 10:03:20.989924+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 1), (18, 2), (18, 3), (18, 4), (18, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 1), (18, 2), (18, 3), (18, 4), (18, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 1), (18, 2), (18, 3), (18, 4), (18, 5), [42001-224]
+2024-06-07 10:03:20.991919+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 1), (19, 2), (19, 3), (19, 4), (19, 5),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 1), (19, 2), (19, 3), (19, 4), (19, 5),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 1), (19, 2), (19, 3), (19, 4), (19, 5), [42001-224]
+2024-06-07 10:03:20.993914+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 1), (20, 2), (20, 3), (20, 4), (20, 5)"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 1), (20, 2), (20, 3), (20, 4), (20, 5)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 1), (20, 2), (20, 3), (20, 4), (20, 5) [42001-224]
+2024-06-07 10:04:44.170179+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:44.181148+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:44.184141+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:44.188129+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:44.190123+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:44.193116+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS') [42001-224]
+2024-06-07 10:04:44.195111+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:44.198102+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:44.201095+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:44.205084+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:44.207078+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:44.209073+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES') [42001-224]
+2024-06-07 10:04:44.212065+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:44.214060+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:44.216054+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:44.219046+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:44.222039+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:44.224033+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO') [42001-224]
+2024-06-07 10:04:44.226028+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:44.228023+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:44.230017+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:44.233009+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:44.236002+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:44.238993+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS') [42001-224]
+2024-06-07 10:04:51.839110+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:51.856065+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:51.860054+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:51.863058+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:51.867036+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'), [42001-224]
+2024-06-07 10:04:51.870027+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS') [42001-224]
+2024-06-07 10:04:51.873020+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:51.879004+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:51.882993+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:51.885986+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:51.889008+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'), [42001-224]
+2024-06-07 10:04:51.891969+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES') [42001-224]
+2024-06-07 10:04:51.895958+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:51.900946+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:51.903937+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:51.908924+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:51.911916+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:04:51.914908+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO') [42001-224]
+2024-06-07 10:04:51.917900+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:04:51.923884+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:51.925878+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:51.929875+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:51.931862+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:04:51.935851+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS') [42001-224]
+2024-06-07 10:09:05.047904+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:09:05.066853+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(1, 'Orbea Alma H30', 1500.00, 1200.00, 'orbea_alma_h30.jpg', 'Bicicleta de montaña de aluminio', 1, 'BICICLETAS'), [42001-224]
+2024-06-07 10:09:05.069845+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(2, 'Cannondale Scalpel Carbon 2', 3500.00, 2800.00, 'cannondale_scalpel_carbon_2.jpg', 'Bicicleta de montaña de carbono', 2, 'BICICLETAS'), [42001-224]
+2024-06-07 10:09:05.072837+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(3, 'Specialized S-Works Tarmac SL7', 8000.00, 6500.00, 'specialized_sworks_tarmac_sl7.jpg', 'Bicicleta de carretera de carbono', 3, 'BICICLETAS'), [42001-224]
+2024-06-07 10:09:05.076826+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(4, 'Megamo Natural 30', 600.00, 450.00, 'megamo_natural_30.jpg', 'Bicicleta de ciudad de aluminio', 4, 'BICICLETAS'), [42001-224]
+2024-06-07 10:09:05.078849+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(5, 'MMR Miracle', 1700.00, 1400.00, 'mmr_miracle.jpg', 'Bicicleta de montaña de aluminio', 5, 'BICICLETAS') [42001-224]
+2024-06-07 10:09:05.080844+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:09:05.084836+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(6, 'Shimano XT M8100', 150.00, 120.00, 'shimano_xt_m8100.jpg', 'Grupo de cambios para bicicleta de montaña', 1, 'COMPONENTES'), [42001-224]
+2024-06-07 10:09:05.088794+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(7, 'SRAM XX1 Eagle AXS', 700.00, 550.00, 'sram_xx1_eagle_axs.jpg', 'Grupo de cambios electrónico para bicicleta de montaña', 2, 'COMPONENTES'), [42001-224]
+2024-06-07 10:09:05.090788+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(8, 'RockShox SID RL', 800.00, 650.00, 'rockshox_sid_rl.jpg', 'Horquilla de suspensión para bicicleta de montaña', 3, 'COMPONENTES'), [42001-224]
+2024-06-07 10:09:05.093781+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(9, 'FSA K-Force Light', 300.00, 240.00, 'fsa_kforce_light.jpg', 'Juego de bielas de carbono para bicicleta de carretera', 4, 'COMPONENTES'), [42001-224]
+2024-06-07 10:09:05.095775+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(10, 'Maxxis Minion DHF', 70.00, 55.00, 'maxxis_minion_dhf.jpg', 'Neumático para bicicleta de montaña', 5, 'COMPONENTES') [42001-224]
+2024-06-07 10:09:05.098767+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:09:05.103756+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(11, 'Maillot Sportful Fiandre Light', 80.00, 60.00, 'sportful_fiandre_light.jpg', 'Maillot de manga larga para ciclismo de carretera', 1, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:09:05.106746+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(12, 'Culote Castelli Velocissimo IV', 100.00, 80.00, 'castelli_velocissimo_iv.jpg', 'Culote corto para ciclismo de carretera', 2, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:09:05.113728+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(13, 'Chaqueta Endura MT500 Waterproof', 180.00, 140.00, 'endura_mt500_waterproof.jpg', 'Chaqueta impermeable para ciclismo de montaña', 3, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:09:05.115722+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(14, 'Casco Giro Synthe MIPS', 250.00, 200.00, 'giro_synthe_mips.jpg', 'Casco de ciclismo de carretera con tecnología MIPS', 4, 'ROPAYEQUIPAMIENTO'), [42001-224]
+2024-06-07 10:09:05.117717+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(15, 'Gafas Oakley Radar EV Path', 200.00, 160.00, 'oakley_radar_ev_path.jpg', 'Gafas de sol para ciclismo con lentes intercambiables', 5, 'ROPAYEQUIPAMIENTO') [42001-224]
+2024-06-07 10:09:05.120709+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "PRECIOVENTA" no encontrada
+Column "PRECIOVENTA" not found; SQL statement:
+INSERT INTO Producto (id, nombre, precioVenta, precioFabrica, imagen, descripcion, marca_id, categoria) VALUES [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80)
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233)
+	at org.hibernate.tool.schema.internal.Helper.applyScript(Helper.java:255)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportFiles(SchemaCreatorImpl.java:665)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applyImportSources(SchemaCreatorImpl.java:584)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:184)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:142)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:118)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:256)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:145)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:142)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.salesianostriana.dam.mendezespanapabloproyecto.MendezEspanaPabloProyectoApplication.main(MendezEspanaPabloProyectoApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-06-07 10:09:05.124698+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(16, 'Bidón Elite Corsa', 10.00, 7.00, 'bidon_elite_corsa.jpg', 'Bidón para agua de ciclismo de carretera', 1, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:09:05.127690+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(17, 'Bombín Topeak Race Rocket HP', 35.00, 25.00, 'topeak_race_rocket_hp.jpg', 'Bombín de aire portátil para bicicleta', 2, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:09:05.129684+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(18, 'Bolsa sillín Scicon Elan 210', 25.00, 18.00, 'scicon_elan_210.jpg', 'Bolsa para herramientas y accesorios de ciclismo', 3, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:09:05.131680+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(19, 'Soporte Garmin Out-Front', 30.00, 22.00, 'soporte_garmin_outfront.jpg', 'Soporte para ordenador de bicicleta Garmin', 4, 'ACCESORIOS'), [42001-224]
+2024-06-07 10:09:05.133674+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; se esperaba "(, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "([*]20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS')"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+(20, 'Cámara GoPro Hero9 Black', 450.00, 380.00, 'gopro_hero9_black.jpg', 'Cámara de acción para deportes extremos', 5, 'ACCESORIOS') [42001-224]
