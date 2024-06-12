@@ -45,6 +45,7 @@ public class ProductoController {
     		Producto producto = aMostrar.get();
     		List<Color> coloresDisponibles = productoService.buscarColoresDisponibles(id);
     		List<Talla> tallasDisponibles = productoService.buscarTallasDisponibles(id);
+    		compraProductoForm.addToLineaVenta(producto);
     		model.addAttribute("producto", producto);
     		model.addAttribute("colores", coloresDisponibles);
     		model.addAttribute("tallas", tallasDisponibles);

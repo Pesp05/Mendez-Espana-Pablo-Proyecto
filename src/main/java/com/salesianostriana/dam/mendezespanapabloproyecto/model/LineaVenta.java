@@ -26,7 +26,6 @@ public class LineaVenta {
 	private Color color;
 	
 	private int cantidad;
-	private double subtotal;
 	
 	@ManyToOne
 	private Venta venta;

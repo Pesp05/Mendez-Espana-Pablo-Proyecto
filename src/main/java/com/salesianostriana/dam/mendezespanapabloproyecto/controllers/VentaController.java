@@ -16,9 +16,8 @@ public class VentaController {
 	
 	@PostMapping("/venta/addToVenta")
 	public String addProductToVenta(@ModelAttribute("lineaVenta") LineaVenta lineaVenta) {
-		lineaVentaService.calcularSubtotal(lineaVenta.getId());
-		lineaVentaService.save(lineaVenta);
-		return "redirect:/venta/addToVenta";
+			lineaVentaService.save(lineaVenta);
+			return "redirect:/portada";
 	}
 
 }

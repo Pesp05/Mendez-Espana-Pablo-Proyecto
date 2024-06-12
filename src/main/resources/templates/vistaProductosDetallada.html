@@ -30,7 +30,7 @@
 					<div class="col-6">
 						<h2 class="row" th:text="${#numbers.formatDecimal(producto.precioVenta, 1, 2,'COMMA')}+'$' ">Precio</h2>
 						<form class="row" id="seleccionVariantes" th:action="@{/venta/addToVenta}" th:object="${lineaVenta}" method="post">
-							<input type="hidden" name="id" th:field="*{id}" />
+							
 							<div class="row">
 								<label for="colores"><strong>Colores</strong></label>
 								<div class="col-3 form-check form-check-inline" th:each="color : ${colores}">
