@@ -41,15 +41,15 @@ public class ProductoController {
     public String showDetailedProduct(@PathVariable("id") long id, Model model) {
     	Optional<Producto> aMostrar = productoService.findById(id);
     	if(aMostrar.isPresent()) {
-    		LineaVenta compraProductoForm = new LineaVenta();
+    		LineaVenta lineaVenta = new LineaVenta();
     		Producto producto = aMostrar.get();
+    		lineaVenta.addToLineaVenta(producto);
     		List<Color> coloresDisponibles = productoService.buscarColoresDisponibles(id);
     		List<Talla> tallasDisponibles = productoService.buscarTallasDisponibles(id);
-    		compraProductoForm.addToLineaVenta(producto);
     		model.addAttribute("producto", producto);
     		model.addAttribute("colores", coloresDisponibles);
     		model.addAttribute("tallas", tallasDisponibles);
-    		model.addAttribute("lineaVenta", compraProductoForm);
+    		model.addAttribute("lineaVenta", lineaVenta);
     		return "vistaProductosDetallada";
     	} else {
     		return "vistaProductosDetallada";
