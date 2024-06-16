@@ -34,16 +34,10 @@ public class LineaVenta {
 	@ManyToOne
 	private Producto producto;
 
-	
-	//Helpers
-	public void addToLineaVenta(Producto producto) {
-		this.producto = producto;
-		producto.getLineasVenta().add(this);
-	}
-	
-	public void removeFromLineaVenta(Producto producto) {
-		producto.getLineasVenta().remove(this);
-		this.producto = null;		
+	//Metodos
+	public double calcularSubtotal() {
+		double precio = producto.getPrecioVenta();
+		return cantidad*precio;
 	}
 	
 }

@@ -52,7 +52,7 @@ public class Usuario implements UserDetails{
 		String role = "ROLE_";
 		role += (admin) ? "ADMIN" : "USER";
 		return List.of(new SimpleGrantedAuthority(role));
-	}	
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
