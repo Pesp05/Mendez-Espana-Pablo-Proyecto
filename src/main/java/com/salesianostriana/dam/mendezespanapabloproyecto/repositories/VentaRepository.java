@@ -11,7 +11,7 @@ import com.salesianostriana.dam.mendezespanapabloproyecto.model.Venta;
 
 public interface VentaRepository extends JpaRepository<Venta, Long>{
 
-	@Query("select v from Venta v where v.isFinished == false and v.usuario = :user")
+	@Query("select v from Venta v where v.isFinished = false and v.usuario = :user")
 	public Optional<Venta> findVentaNotFinished(@Param("user") Usuario user);
 	
 }

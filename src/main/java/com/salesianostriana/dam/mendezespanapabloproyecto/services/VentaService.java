@@ -22,9 +22,17 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 	@Autowired
 	private ProductoService productoService;
 	
-	public void addProductoToVenta(int cantidad, Long idProducto, Long idVenta, @AuthenticationPrincipal Usuario user, Talla talla, Color color) {
-		Optional<Venta> optVenta = this.buscarVentaNotFinished(user);
-		Venta venta = optVenta.orElseGet(() -> crearVenta(user));
+	@Autowired
+	private TallaService tallaService;
+	
+	@Autowired
+	private ColorService colorService;
+	
+	@Autowired
+	private LineaVentaService lineaVentaService;
+	
+	
+	public void addProductoToVenta(int cantidad, Long idProducto, @AuthenticationPrincipal Usuario user, Long idTalla, Long idColor, Venta venta) {
 		Optional<Producto> optProducto = productoService.findById(idProducto);
 		if(optProducto.isPresent()) {
 			Producto producto = optProducto.get();
@@ -34,9 +42,11 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 															  						  .getId()
 													  								  .equals(idProducto))
 													  .filter(lineaVenta -> lineaVenta.getColor()
-															  						  .equals(color))
+															  						  .getId()
+															  						  .equals(idColor))
 													  .filter(lineaVenta -> lineaVenta.getTalla()
-															  						  .equals(talla))
+															  						  .getId()
+															  						  .equals(idTalla))
 													  .findFirst();
 			
 			if(optLineaVenta.isPresent()) {
@@ -44,9 +54,22 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 				lv.setCantidad(lv.getCantidad()+cantidad);
 				repository.save(venta);
 			} else {
-				LineaVenta nuevaLineaVenta = crearLineaVenta(producto, talla, color, cantidad, venta);
-				venta.getListaLineasVenta().add(nuevaLineaVenta);
-				repository.save(venta);
+				Optional<Talla> optTalla = tallaService.findById(idTalla);
+				Optional<Color> optColor = colorService.findById(idColor);
+				if(optColor.isPresent() && optTalla.isPresent()) {
+					Talla talla = optTalla.get();
+					Color color = optColor.get();
+					LineaVenta nuevaLineaVenta = crearLineaVenta(producto, talla, color, cantidad, venta);
+					venta.getListaLineasVenta().add(nuevaLineaVenta);
+					venta.getListaLineasVenta().forEach(lineaVenta -> {
+					    lineaVenta.setVenta(venta);
+					    lineaVentaService.save(nuevaLineaVenta);
+					});
+
+					repository.save(venta);
+				} else {
+					throw new IllegalArgumentException("No se encuentran la talla o el color");
+				}
 			}
 			
 		} else {
@@ -78,6 +101,32 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 	
 	public Optional<Venta> buscarVentaNotFinished(@AuthenticationPrincipal Usuario user) {
 		 return repository.findVentaNotFinished(user);
+	}
+	
+	public void removeProductoFromVenta(@AuthenticationPrincipal Usuario user, Long idLineaVenta) {
+		Optional<Venta> optVenta = buscarVentaNotFinished(user);
+		if(optVenta.isPresent()) {
+			Venta venta = optVenta.get();
+			Optional<LineaVenta> optLineaVenta = venta.getListaLineasVenta()
+					  .stream()
+					  .filter(lineaVenta -> lineaVenta.getId()
+							  						  .equals(idLineaVenta))
+					  .findFirst();
+
+			if(optLineaVenta.isPresent()) {
+				LineaVenta lv = optLineaVenta.get();
+				int cantidad = lv.getCantidad();
+				if(cantidad > 1) {
+					lv.setCantidad(cantidad-1);
+				} else {
+					if(cantidad <= 1) {
+						venta.getListaLineasVenta().remove(lv);
+						lineaVentaService.delete(lv);
+					}
+					repository.save(venta);
+				}
+			}
+		}
 	}
 	
 }

@@ -17,12 +17,13 @@
 				<h2 class="mx-3 mb-0">Productos</h2>
 		        <table class="w-75 mx-auto shadow-lg">
 		            <tr class="border-bottom">
-		                <td class="col-2"><strong>Imagen</strong></td>
+		                <td class="col-1"><strong>Imagen</strong></td>
 		                <td class="col-2"><strong>Nombre</strong></td>
 		                <td class="col-2"><strong>Precio</strong></td>
 		                <td class="col-2"><strong>Color</strong></td>
 						<td class="col-2"><strong>Talla</strong></td>
 						<td class="col-2"><strong>Cantidad</strong></td>
+						<td class="col-1"></td>
 
 		            </tr>
 		            <tr class="shadow-sm" th:each="lineaVenta : ${listaLineasVenta}">
@@ -32,6 +33,7 @@
 						<td th:text="${lineaVenta.color.nombre}">Color</td>
 						<td th:text="${lineaVenta.talla.nombre}">Talla</td>
 						<td th:text="${lineaVenta.cantidad}">Cantidad</td>
+						<td><a th:href="@{/carrito/borrarLineaVenta/{id}(id = ${lineaVenta.id})}" class="btn btn-danger btn-sm">Borrar</a></td>
 		            </tr>
 		            <tr>
 		
