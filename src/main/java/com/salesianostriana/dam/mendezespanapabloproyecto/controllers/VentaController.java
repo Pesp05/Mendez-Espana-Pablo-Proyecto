@@ -56,7 +56,7 @@ public class VentaController {
 	@GetMapping("/carrito/borrarLineaVenta/{id}")
 	public String deleteLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.removeProductoFromVenta(user, idLineaVenta);
-		return "carrito";
+		return "redirect:/carrito/vista";
 	}
 	
 }

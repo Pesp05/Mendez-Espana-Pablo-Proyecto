@@ -115,17 +115,10 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 
 			if(optLineaVenta.isPresent()) {
 				LineaVenta lv = optLineaVenta.get();
-				int cantidad = lv.getCantidad();
-				if(cantidad > 1) {
-					lv.setCantidad(cantidad-1);
-				} else {
-					if(cantidad <= 1) {
-						venta.getListaLineasVenta().remove(lv);
-						lineaVentaService.delete(lv);
-					}
-					repository.save(venta);
-				}
+				venta.getListaLineasVenta().remove(lv);
+				lineaVentaService.delete(lv);
 			}
+			repository.save(venta);
 		}
 	}
 	
