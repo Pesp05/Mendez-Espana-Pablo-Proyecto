@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +40,9 @@ public class Venta {
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_venta_usuario"))
 	private Usuario usuario;
+	
+	private LocalDateTime fecha;
+	
+	private double precioTotal;
 	
 }

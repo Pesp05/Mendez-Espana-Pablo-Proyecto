@@ -32,7 +32,7 @@
 		                            <img th:src="@{${producto.imagen}}" class="card-img-top" alt="Imagen del Producto">
 		                            <div class="card-body">
 		                                <h5 th:text="${producto.nombre}" class="card-title"></h5>
-		                                <p th:text="${'Precio: $' + producto.precioVenta}" class="card-text"></p>
+		                                <p th:text="${'Precio: €' + producto.precioVenta}" class="card-text"></p>
 		                                <p th:text="${producto.descripcion}" class="card-text"></p>
 		                                <a th:href="@{/producto/{id}(id = ${producto.id})}" class="btn btn-primary">Ver Detalles</a>
 		                            </div>

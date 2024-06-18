@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,7 @@ public class VentaController {
 		Optional<Venta> optVenta = ventaService.buscarVentaNotFinished(user);
 		Venta venta = optVenta.orElseGet(() -> ventaService.crearVenta(user));
 		ventaService.addProductoToVenta(cantidad, idProducto, user, idTalla, idColor, venta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 		
 	}
@@ -40,15 +42,12 @@ public class VentaController {
 	@GetMapping("/carrito/vista")
 	public String showCarrito(@AuthenticationPrincipal Usuario user, Model model) {
 		Optional<Venta> optVenta = ventaService.buscarVentaNotFinished(user);
-		if(optVenta.isPresent()) {
-			Venta venta = optVenta.get();
-			List<LineaVenta> lineasVenta = venta.getListaLineasVenta();
-			model.addAttribute("venta", venta);
-			model.addAttribute("listaLineasVenta", lineasVenta);
-			return "carrito";
-		} else {
-			return "carrito";
-		}
+		Venta venta = optVenta.orElseGet(() -> ventaService.crearVenta(user));
+		List<LineaVenta> lineasVenta = venta.getListaLineasVenta();
+		ventaService.calcularPrecioTotalVenta(user);
+		model.addAttribute("venta", venta);
+		model.addAttribute("listaLineasVenta", lineasVenta);
+		return "carrito";
 		
 	}
 	
@@ -56,18 +55,21 @@ public class VentaController {
 	@GetMapping("/carrito/borrarLineaVenta/{id}")
 	public String deleteLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.removeProductoFromVenta(user, idLineaVenta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 	}
 	
 	@GetMapping("/carrito/sumarCantidad/{id}")
 	public String sumarCantidadLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.sumarCantidadLineaVenta(user, idLineaVenta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 	}
 	
 	@GetMapping("/carrito/restarCantidad/{id}")
 	public String restarCantidadLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.restarCantidadLineaVenta(user, idLineaVenta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 	}
 	
@@ -77,16 +79,38 @@ public class VentaController {
 			if(optVenta.isPresent()) {
 				Venta venta = optVenta.get();
 				if(venta.getListaLineasVenta().isEmpty()) {
-					throw new IllegalArgumentException("No hay productos en carrito");
+					return "redirect:/carrito/vista?error=true";
 				} else {
 					venta.setFinished(true);
+					venta.setFecha(LocalDateTime.now());
 					ventaService.save(venta);
-					return "redirect:/portada";
+					return "redirect:/ventas/ver";
 				}
 			}
 			
 			return "redirect:/carrito/vista";
 		
+	}
+
+	@GetMapping("/ventas/ver")
+	public String showVentas(@AuthenticationPrincipal Usuario user, Model model) {
+		List<Venta> listaVentas = ventaService.findAllUserFinishedVentas(user);
+		model.addAttribute("listaVentas", listaVentas);
+		return "listadoVentasUsuario";
+	}
+	
+	@GetMapping("/venta/ver/deetalles/{id}")
+	public String showDetailedVenta(@PathVariable("id") Long idVenta, Model model) {
+		Optional<Venta> optVenta = ventaService.findById(idVenta);
+		if(optVenta.isPresent()) {
+			Venta venta = optVenta.get();
+			List<LineaVenta> listaLineasVenta = venta.getListaLineasVenta();
+			model.addAttribute("venta", venta);
+			model.addAttribute("listaLineasVenta", listaLineasVenta);
+			return "ventaDetalles";
+		} else {
+			throw new IllegalArgumentException("No se encuentra la venta");
+		}
 	}
 	
 }
