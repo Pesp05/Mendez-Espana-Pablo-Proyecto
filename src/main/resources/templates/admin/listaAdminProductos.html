@@ -12,10 +12,15 @@
 	
 	<nav th:replace="~{fragmentos/adminNavbar::adminNavbar}"></nav>
 	
+	<div class="alert alert-danger alert-dismissible fade show mb-5" th:if="${param.error}">
+		<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+	    <h5 class="m-0"><strong><i class="bi bi-exclamation-diamond-fill"></i></strong>Este producto esta asociado a alguna venta y no puede ser borrado</h5>
+	</div>
+	
 	<!--Tabla-->
-	    <div class="mx-auto w-75 align-items-center">
-			<h2 class="mx-3 mb-0">Productos</h2>
-			<a th:href="@{/admin/producto/nuevo}" class="btn btn-info btn-sm">Añadir producto</a>
+	    <div class="mx-auto w-75">
+			<h2 class="text-center mt-5">Productos</h2>
+			<a th:href="@{/admin/producto/nuevo}" class="btn btn-info btn-sm text-center">Añadir producto</a>
 	        <table class="w-75 mx-auto shadow-lg">
 	            <tr class="border-bottom">
 	                <td class="col-1"><strong>Imagen</strong></td>
