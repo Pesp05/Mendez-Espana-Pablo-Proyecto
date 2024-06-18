@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.services;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 			if(optLineaVenta.isPresent()) {
 				LineaVenta lv = optLineaVenta.get();
 				lv.setCantidad(lv.getCantidad()+cantidad);
+				lv.setSubTotal(lv.calcularSubtotal());
 				repository.save(venta);
 			} else {
 				Optional<Talla> optTalla = tallaService.findById(idTalla);
@@ -60,6 +62,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 					Talla talla = optTalla.get();
 					Color color = optColor.get();
 					LineaVenta nuevaLineaVenta = crearLineaVenta(producto, talla, color, cantidad, venta);
+					nuevaLineaVenta.setSubTotal(nuevaLineaVenta.calcularSubtotal());
 					venta.getListaLineasVenta().add(nuevaLineaVenta);
 					venta.getListaLineasVenta().forEach(lineaVenta -> {
 					    lineaVenta.setVenta(venta);
@@ -131,6 +134,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 			if(optLineaVenta.isPresent()) {
 				LineaVenta lv = optLineaVenta.get();
 				lv.setCantidad(lv.getCantidad()+1);
+				lv.setSubTotal(lv.calcularSubtotal());
 			}
 			repository.save(venta);
 			
@@ -146,12 +150,33 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 			if(optLineaVenta.isPresent()) {
 				LineaVenta lv = optLineaVenta.get();
 				lv.setCantidad(lv.getCantidad()-1);
+				lv.setSubTotal(lv.calcularSubtotal());
 				if(lv.getCantidad() <= 0) {
 					this.removeProductoFromVenta(user, idLineaVenta);
 				}
 			}
 			repository.save(venta);
 			
+		}
+	}
+	
+	public List<Venta> findAllUserFinishedVentas(@AuthenticationPrincipal Usuario user){
+		return repository.findFinishedVentas(user);
+	}
+	
+	public void calcularPrecioTotalVenta(@AuthenticationPrincipal Usuario user) {
+		Optional<Venta> optVenta = this.buscarVentaNotFinished(user);
+		if(optVenta.isPresent()) {
+			Venta venta = optVenta.get();
+			double precioTotal = 0;
+			for (LineaVenta lineaVenta : venta.getListaLineasVenta()) {
+				precioTotal = precioTotal+lineaVenta.getSubTotal();
+			}
+			
+			repository.save(venta);
+			
+		} else {
+			throw new IllegalArgumentException("Venta no encontrada");
 		}
 	}
 	

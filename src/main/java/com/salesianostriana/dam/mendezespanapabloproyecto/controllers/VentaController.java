@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,7 @@ public class VentaController {
 		Optional<Venta> optVenta = ventaService.buscarVentaNotFinished(user);
 		Venta venta = optVenta.orElseGet(() -> ventaService.crearVenta(user));
 		ventaService.addProductoToVenta(cantidad, idProducto, user, idTalla, idColor, venta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 		
 	}
@@ -56,18 +58,21 @@ public class VentaController {
 	@GetMapping("/carrito/borrarLineaVenta/{id}")
 	public String deleteLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.removeProductoFromVenta(user, idLineaVenta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 	}
 	
 	@GetMapping("/carrito/sumarCantidad/{id}")
 	public String sumarCantidadLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.sumarCantidadLineaVenta(user, idLineaVenta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 	}
 	
 	@GetMapping("/carrito/restarCantidad/{id}")
 	public String restarCantidadLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
 		ventaService.restarCantidadLineaVenta(user, idLineaVenta);
+		ventaService.calcularPrecioTotalVenta(user);
 		return "redirect:/carrito/vista";
 	}
 	
@@ -77,9 +82,10 @@ public class VentaController {
 			if(optVenta.isPresent()) {
 				Venta venta = optVenta.get();
 				if(venta.getListaLineasVenta().isEmpty()) {
-					throw new IllegalArgumentException("No hay productos en carrito");
+					return "redirect:/carrito/vista?error=true";
 				} else {
 					venta.setFinished(true);
+					venta.setFecha(LocalDateTime.now());
 					ventaService.save(venta);
 					return "redirect:/portada";
 				}
@@ -88,5 +94,11 @@ public class VentaController {
 			return "redirect:/carrito/vista";
 		
 	}
-	
+	/*
+	@GetMapping("/ventas/ver")
+	public String showVentas(@AuthenticationPrincipal Usuario user, Model model) {
+		List<Venta> listaVentas = ventaService.findAllUserFinishedVentas(user);
+		model.addAttribute("listaVentas", listaVentas);
+	}
+	*/
 }

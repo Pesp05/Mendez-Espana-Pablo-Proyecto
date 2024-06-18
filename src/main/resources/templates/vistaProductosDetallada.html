@@ -46,7 +46,7 @@
 								</div>
 							</div>
 							<div class="form-floating mb-3 shadow" style="margin-top: 10px;">
-								<input type="number" class="form-control" id="cantidad" th:field="*{cantidad}" placeholder="Cantidad">
+								<input type="number" class="form-control" id="cantidad" th:field="*{cantidad}" placeholder="Cantidad" min="1" max="99">
 								<label for="cantidad">Cantidad</label>
 							</div>
 							<button type="submit" class="btn btn-success shadow-lg col-12" style="margin-top: 10px;">Comprar</button>

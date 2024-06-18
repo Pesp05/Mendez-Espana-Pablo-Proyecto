@@ -12,6 +12,11 @@
 	
 	<nav th:replace="~{fragmentos/userNavbar::userNavbar}"></nav>
 	
+	<div class="alert alert-danger alert-dismissible fade show mb-5" th:if="${param.error}">
+		<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+	    <h5 class="m-0"><strong><i class="bi bi-exclamation-diamond-fill"></i></strong>No se puede comprar, el carrito esta vacio.</h5>
+	</div>
+	
 	<!--Tabla-->
 		    <div class="mx-auto w-75 align-items-center">
 				<h2 class="mx-3 mb-0">Productos</h2>
@@ -29,7 +34,7 @@
 		            <tr class="shadow-sm" th:each="lineaVenta : ${listaLineasVenta}">
 		                <td><img th:src="@{${lineaVenta.producto.imagen}}" style="width: 50px;" alt="Imagen del Producto"></td>
 						<td th:text="${lineaVenta.producto.nombre}">Nombre</td>
-						<td th:text="${#numbers.formatDecimal(lineaVenta.producto.precioVenta, 1, 2,'COMMA')}">Precio</td>
+						<td th:text="${#numbers.formatDecimal(lineaVenta.subTotal, 1, 2,'COMMA')}">Precio</td>
 						<td th:text="${lineaVenta.color.nombre}">Color</td>
 						<td th:text="${lineaVenta.talla.nombre}">Talla</td>
 						<td>
@@ -53,7 +58,7 @@
 		    </div>
 			<div class="row w-50 mx-auto">
 				<a class="btn btn-outline-secondary col-4" th:href="@{/producto/vista/BICICLETAS}">Seguir comprando</a>
-				<p class="col-4"></p>
+				<h1 class="col-4 text-center" th:text="${venta.precioTotal}">Precio Total</h1>
 				<a class="btn btn-outline-success col-4" th:href="@{/carrito/finalizarVenta}">Confirmar compra</a>
 			</div>	
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
