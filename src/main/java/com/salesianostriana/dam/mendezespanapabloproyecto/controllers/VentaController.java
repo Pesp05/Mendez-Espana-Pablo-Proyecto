@@ -59,4 +59,34 @@ public class VentaController {
 		return "redirect:/carrito/vista";
 	}
 	
+	@GetMapping("/carrito/sumarCantidad/{id}")
+	public String sumarCantidadLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
+		ventaService.sumarCantidadLineaVenta(user, idLineaVenta);
+		return "redirect:/carrito/vista";
+	}
+	
+	@GetMapping("/carrito/restarCantidad/{id}")
+	public String restarCantidadLineaVenta(@PathVariable("id") Long idLineaVenta, @AuthenticationPrincipal Usuario user) {
+		ventaService.restarCantidadLineaVenta(user, idLineaVenta);
+		return "redirect:/carrito/vista";
+	}
+	
+	@GetMapping("/carrito/finalizarVenta")
+	public String finalizarVenta(@AuthenticationPrincipal Usuario user) {
+			Optional<Venta> optVenta = ventaService.buscarVentaNotFinished(user);
+			if(optVenta.isPresent()) {
+				Venta venta = optVenta.get();
+				if(venta.getListaLineasVenta().isEmpty()) {
+					throw new IllegalArgumentException("No hay productos en carrito");
+				} else {
+					venta.setFinished(true);
+					ventaService.save(venta);
+					return "redirect:/portada";
+				}
+			}
+			
+			return "redirect:/carrito/vista";
+		
+	}
+	
 }

@@ -32,7 +32,18 @@
 						<td th:text="${#numbers.formatDecimal(lineaVenta.producto.precioVenta, 1, 2,'COMMA')}">Precio</td>
 						<td th:text="${lineaVenta.color.nombre}">Color</td>
 						<td th:text="${lineaVenta.talla.nombre}">Talla</td>
-						<td th:text="${lineaVenta.cantidad}">Cantidad</td>
+						<td>
+							<div class="row">
+								<div class="w-auto">
+									<a type="button" class="btn btn-outline-primary p-2" th:href="@{/carrito/sumarCantidad/{id}(id = ${lineaVenta.id})}">+</a>
+								</div>
+								<div th:text="${lineaVenta.cantidad}" class="w-auto pt-2">	
+								</div>
+								<div class="w-auto">
+									<a type="button" class="btn btn-outline-primary p-2" th:href="@{/carrito/restarCantidad/{id}(id = ${lineaVenta.id})}">-</a>
+								</div>
+							</div>
+						</td>
 						<td><a th:href="@{/carrito/borrarLineaVenta/{id}(id = ${lineaVenta.id})}" class="btn btn-danger btn-sm">Borrar</a></td>
 		            </tr>
 		            <tr>
@@ -40,7 +51,11 @@
 		            </tr>
 		        </table>
 		    </div>
-	
+			<div class="row w-50 mx-auto">
+				<a class="btn btn-outline-secondary col-4" th:href="@{/producto/vista/BICICLETAS}">Seguir comprando</a>
+				<p class="col-4"></p>
+				<a class="btn btn-outline-success col-4" th:href="@{/carrito/finalizarVenta}">Confirmar compra</a>
+			</div>	
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 		
 </body>

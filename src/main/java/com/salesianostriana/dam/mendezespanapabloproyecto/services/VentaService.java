@@ -122,4 +122,37 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 		}
 	}
 	
+	public void sumarCantidadLineaVenta(@AuthenticationPrincipal Usuario user, Long idLineaVenta) {
+		Optional<Venta> optVenta = buscarVentaNotFinished(user);
+		if(optVenta.isPresent()) {
+			Venta venta = optVenta.get();
+			Optional<LineaVenta> optLineaVenta = lineaVentaService.findById(idLineaVenta);
+			
+			if(optLineaVenta.isPresent()) {
+				LineaVenta lv = optLineaVenta.get();
+				lv.setCantidad(lv.getCantidad()+1);
+			}
+			repository.save(venta);
+			
+		}
+	}
+	
+	public void restarCantidadLineaVenta(@AuthenticationPrincipal Usuario user, Long idLineaVenta) {
+		Optional<Venta> optVenta = buscarVentaNotFinished(user);
+		if(optVenta.isPresent()) {
+			Venta venta = optVenta.get();
+			Optional<LineaVenta> optLineaVenta = lineaVentaService.findById(idLineaVenta);
+			
+			if(optLineaVenta.isPresent()) {
+				LineaVenta lv = optLineaVenta.get();
+				lv.setCantidad(lv.getCantidad()-1);
+				if(lv.getCantidad() <= 0) {
+					this.removeProductoFromVenta(user, idLineaVenta);
+				}
+			}
+			repository.save(venta);
+			
+		}
+	}
+	
 }
