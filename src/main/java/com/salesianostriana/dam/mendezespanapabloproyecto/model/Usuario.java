@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.mendezespanapabloproyecto.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -9,12 +10,16 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -36,12 +41,18 @@ public class Usuario implements UserDetails{
 	
 	private boolean admin;
 	
+	@OneToMany(mappedBy="usuario", fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@Builder.Default
+	private List<Venta> ventas = new ArrayList<>();
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		String role = "ROLE_";
 		role += (admin) ? "ADMIN" : "USER";
 		return List.of(new SimpleGrantedAuthority(role));
-	}	
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
