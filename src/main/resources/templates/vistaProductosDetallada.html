@@ -28,7 +28,7 @@
 						<p th:text="${producto.descripcion}" class="card-text"></p>
 					</div>
 					<div class="col-6">
-						<h2 class="row" th:text="${#numbers.formatDecimal(producto.precioVenta, 1, 2,'COMMA')}+'$' ">Precio</h2>
+						<h2 class="row" th:text="${#numbers.formatDecimal(producto.precioVenta, 1, 2,'COMMA')}+'€' ">Precio</h2>
 						<form class="row" id="seleccionVariantes" th:action="@{/carrito/addProducto}" method="post" th:object="${compraProducto}">
 							<input type="hidden" name="idProducto" th:value="*{idProducto}" th:field="*{idProducto}" />
 							<div class="row">

@@ -42,15 +42,12 @@ public class VentaController {
 	@GetMapping("/carrito/vista")
 	public String showCarrito(@AuthenticationPrincipal Usuario user, Model model) {
 		Optional<Venta> optVenta = ventaService.buscarVentaNotFinished(user);
-		if(optVenta.isPresent()) {
-			Venta venta = optVenta.get();
-			List<LineaVenta> lineasVenta = venta.getListaLineasVenta();
-			model.addAttribute("venta", venta);
-			model.addAttribute("listaLineasVenta", lineasVenta);
-			return "carrito";
-		} else {
-			return "carrito";
-		}
+		Venta venta = optVenta.orElseGet(() -> ventaService.crearVenta(user));
+		List<LineaVenta> lineasVenta = venta.getListaLineasVenta();
+		ventaService.calcularPrecioTotalVenta(user);
+		model.addAttribute("venta", venta);
+		model.addAttribute("listaLineasVenta", lineasVenta);
+		return "carrito";
 		
 	}
 	
@@ -87,18 +84,33 @@ public class VentaController {
 					venta.setFinished(true);
 					venta.setFecha(LocalDateTime.now());
 					ventaService.save(venta);
-					return "redirect:/portada";
+					return "redirect:/ventas/ver";
 				}
 			}
 			
 			return "redirect:/carrito/vista";
 		
 	}
-	/*
+
 	@GetMapping("/ventas/ver")
 	public String showVentas(@AuthenticationPrincipal Usuario user, Model model) {
 		List<Venta> listaVentas = ventaService.findAllUserFinishedVentas(user);
 		model.addAttribute("listaVentas", listaVentas);
+		return "listadoVentasUsuario";
 	}
-	*/
+	
+	@GetMapping("/venta/ver/deetalles/{id}")
+	public String showDetailedVenta(@PathVariable("id") Long idVenta, Model model) {
+		Optional<Venta> optVenta = ventaService.findById(idVenta);
+		if(optVenta.isPresent()) {
+			Venta venta = optVenta.get();
+			List<LineaVenta> listaLineasVenta = venta.getListaLineasVenta();
+			model.addAttribute("venta", venta);
+			model.addAttribute("listaLineasVenta", listaLineasVenta);
+			return "ventaDetalles";
+		} else {
+			throw new IllegalArgumentException("No se encuentra la venta");
+		}
+	}
+	
 }

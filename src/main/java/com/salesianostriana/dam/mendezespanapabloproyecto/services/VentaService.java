@@ -172,7 +172,7 @@ public class VentaService extends BaseServiceImpl<Venta, Long, VentaRepository>{
 			for (LineaVenta lineaVenta : venta.getListaLineasVenta()) {
 				precioTotal = precioTotal+lineaVenta.getSubTotal();
 			}
-			
+			venta.setPrecioTotal(precioTotal);
 			repository.save(venta);
 			
 		} else {

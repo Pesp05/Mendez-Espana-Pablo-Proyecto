@@ -14,7 +14,7 @@
 	
 	<!--Tabla-->
 			    <div class="mx-auto w-75 align-items-center">
-					<h2 class="mx-3 mb-0">Ventas</h2>
+					<h2 class="text-center mt-5">Ventas</h2>
 			        <table class="w-75 mx-auto shadow-lg">
 			            <tr class="border-bottom">
 			                <td class="col-3"><strong>ID</strong></td>
@@ -25,9 +25,9 @@
 			            </tr>
 			            <tr class="shadow-sm" th:each="venta : ${listaVentas}">
 							<td th:text="${venta.id}">ID</td>
-							<td th:text="${#numbers.formatDecimal(venta.precioTotal, 1, 2,'COMMA')}">Precio</td>
+							<td th:text="${#numbers.formatDecimal(venta.precioTotal, 1, 2)}+'€'">Precio</td>
 							<td th:text="${venta.fecha}">Fecha</td>
-							<td><a th:href="@{}" class="btn btn-success btn-sm">Ver</a></td>
+							<td><a class="btn btn-success btn-sm" th:href="@{/venta/ver/deetalles/{id}(id = ${venta.id})}">Ver</a></td>
 			            </tr>
 			            <tr>
 			
