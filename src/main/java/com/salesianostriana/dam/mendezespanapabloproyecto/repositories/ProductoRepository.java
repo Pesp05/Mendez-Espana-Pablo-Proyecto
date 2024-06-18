@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Color;
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.LineaVenta;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Talla;
 
@@ -22,5 +23,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>{
 	
 	@Query("select p.tallas from Producto p where p.id = :idProducto")
 	public List<Talla> tallasPorIdProducto(@Param("idProducto") Long idProducto);
+	
+	@Query("select p.lineasVenta from Producto p where p.id = :idProducto")
+	public List<LineaVenta> siProductoEnLineaDeVenta(@Param("idProducto") Long idProducto);
 	
 }

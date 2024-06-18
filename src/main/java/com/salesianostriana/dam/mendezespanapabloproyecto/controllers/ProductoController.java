@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Categoria;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Color;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.CompraProducto;
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.LineaVenta;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Talla;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ColorService;
@@ -110,10 +111,15 @@ public class ProductoController {
     public String deleteProduct(@PathVariable("id") long id) {
         Optional<Producto> producto = productoService.findById(id);
         if(producto.isPresent()) {
-            productoService.delete(producto.get());
-            return "redirect:/admin/lista/producto";
+        	List<LineaVenta> listaLineas = productoService.buscarSiProductoEnLineaVenta(id);
+        	if(listaLineas.isEmpty()) {
+        		return "redirect:/admin/lista/producto?error=true";
+        	}else {
+        		productoService.delete(producto.get());
+        		return "redirect:/admin/lista/producto";
+        	}
         } else {
-            return "redirect:/admin/lista/producto";
+            throw new IllegalArgumentException("Producto no encontrado");
         }
     }
 }
