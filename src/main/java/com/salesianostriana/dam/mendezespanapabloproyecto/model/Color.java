@@ -29,5 +29,5 @@ public class Color {
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	List<LineaVenta> lineasVenta;
-
+	
 }

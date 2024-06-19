@@ -34,10 +34,14 @@ public class ColorController {
     public String deleteColor(@PathVariable("id") long id) {
         Optional<Color> color = colorService.findById(id);
         if(color.isPresent()) {
-            colorService.delete(color.get());
-            return "redirect:/admin/lista/variantes";
+        	if(colorService.hayProductoEnColor(id).isEmpty()) {
+        		colorService.delete(color.get());
+            	return "redirect:/admin/lista/variantes";
+        	} else {
+        		return "redirect:/admin/lista/variantes?error=true";
+        	}
         } else {
-            return "redirect:/admin/lista/variantes";
+        	throw new IllegalArgumentException("Color no encontrado");
         }
     }
 	

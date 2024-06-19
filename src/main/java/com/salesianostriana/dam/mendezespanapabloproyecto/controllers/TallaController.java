@@ -34,11 +34,16 @@ public class TallaController {
     public String deleteTalla(@PathVariable("id") long id) {
         Optional<Talla> talla = tallaService.findById(id);
         if(talla.isPresent()) {
-            tallaService.delete(talla.get());
-            return "redirect:/admin/lista/variantes";
+        	if(tallaService.hayProductoEnTalla(id).isEmpty()) {
+        		tallaService.delete(talla.get());
+            	return "redirect:/admin/lista/variantes";
+        	} else {
+        		return "redirect:/admin/lista/variantes?error=true";
+        	}
         } else {
-            return "redirect:/admin/lista/variantes";
+        	throw new IllegalArgumentException("Talla no encontrada");
         }
     }
+	
 	
 }

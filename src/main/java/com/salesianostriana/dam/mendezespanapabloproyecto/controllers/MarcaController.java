@@ -34,10 +34,14 @@ public class MarcaController {
     public String deleteMarca(@PathVariable("id") long id) {
         Optional<Marca> marca = marcaService.findById(id);
         if(marca.isPresent()) {
-            marcaService.delete(marca.get());
-            return "redirect:/admin/lista/variantes";
+        	if(marcaService.productosAsocMarca(id).isEmpty()) {
+        		marcaService.delete(marca.get());
+            	return "redirect:/admin/lista/variantes";
+        	} else {
+        		return "redirect:/admin/lista/variantes?error=true";
+        	}
         } else {
-            return "redirect:/admin/lista/variantes";
+            throw new IllegalArgumentException("Marca no encontrada");
         }
     }
 	

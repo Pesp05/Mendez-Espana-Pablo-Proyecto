@@ -12,6 +12,11 @@
 	
 	<nav th:replace="~{fragmentos/adminNavbar::adminNavbar}"></nav>
 	
+	<div class="alert alert-danger alert-dismissible fade show mb-5" th:if="${param.error}">
+		<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		<h5 class="m-0"><strong><i class="bi bi-exclamation-diamond-fill"></i></strong>No se pueded eliminar porque hay productos asociados</h5>
+	</div>
+	
 	<!--Tabla marcas-->
 	<div class="row w-75 mx-auto">
 		    <div class="mx-auto col-4">
