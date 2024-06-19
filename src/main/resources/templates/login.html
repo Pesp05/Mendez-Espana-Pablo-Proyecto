@@ -12,14 +12,20 @@
 
 	<nav th:replace="~{fragmentos/navbar::navbar}"></nav>
 	
+	<div class="alert alert-danger alert-dismissible fade show mb-5" th:if="${param.error}">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			   <h5 class="m-0"><strong><i class="bi bi-exclamation-diamond-fill"></i></strong>Credenciales incorrectas</h5>
+		</div>
+	
 	<div class="w-25 mx-auto">
-		<h1>INICIO DE SESIÓN</h1>
+		<h1 class="text-center">INICIO DE SESIÓN</h1>
 		<form method="POST" action="#" th:action="@{/login}">
-			<input type="text" id="username" name="username" placeholder="Username" required autofocus> 
-			<input type="password" name="password" id="password" placeholder="Password" required>
-			<input type="submit" name="enviar" value="Enviar" />
+			<input type="text" class="row shadow form-control text-center border-5" id="username" name="username" placeholder="Username" required autofocus> 
+			<input type="password" class="row shadow form-control text-center mt-3 border-5" name="password" id="password" placeholder="Password" required>
+			<input type="submit" class="row shadow btn btn-outline-primary text-center mt-3" name="enviar" value="Enviar" />
 		</form>
 		<p>¿No tienes cuenta? <a th:href="@{/usuario/nuevo}">Regístrate</a></p>
+		
 	</div>
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	

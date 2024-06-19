@@ -39,24 +39,6 @@ public class UsuarioController {
 		}
 	}
 	
-	@GetMapping("/editar")
-	public String editUser(@AuthenticationPrincipal Usuario usuario, Model model) {
-		model.addAttribute("usuario", usuario);
-		return "editarUsuario";
-	}
-	
-	@PostMapping("/editar/submit")
-	public String submitEditUserById(@ModelAttribute("usuario") Usuario usuario) {
-		Optional<Usuario> existingUser = usuarioService.findIfUsernameExists(usuario.getUsername());
-		if(existingUser.isEmpty()) {
-			usuarioService.edit(usuario);
-			return "redirect:/usuario/perfil";
-		} else {
-			return "redirect:/usuario/editar?error=true";
-		}
-		
-	}
-	
 	@GetMapping("/perfil")
 	public String viewUserProfile(@AuthenticationPrincipal Usuario usuario, Model model) {
 		model.addAttribute("usuario", usuario);
