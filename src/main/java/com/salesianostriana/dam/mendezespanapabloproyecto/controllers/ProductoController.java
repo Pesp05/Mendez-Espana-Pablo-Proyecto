@@ -112,8 +112,8 @@ public class ProductoController {
         Optional<Producto> producto = productoService.findById(id);
         if(producto.isPresent()) {
         	List<LineaVenta> listaLineas = productoService.buscarSiProductoEnLineaVenta(id);
-        	if(listaLineas.isEmpty()) {
-        		return "redirect:/admin/lista/producto?error=true";
+        	if(!listaLineas.isEmpty()) {
+        		return "redirect:/admin/lista/producto?error=true"; 
         	}else {
         		productoService.delete(producto.get());
         		return "redirect:/admin/lista/producto";

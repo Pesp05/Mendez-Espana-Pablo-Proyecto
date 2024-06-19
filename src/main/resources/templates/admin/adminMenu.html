@@ -11,5 +11,16 @@
 <body class="d-flex flex-column justify-content-between min-vh-100">
 	
 	<nav th:replace="~{fragmentos/adminNavbar::adminNavbar}"></nav>
+	
+	<h1 class="text-center mt-3">Bienvenido a la zona de administrador</h1>
+	<div class="mt-3 w-25 mx-auto row">
+		<a th:href="@{/admin/lista/producto}" class="btn btn-lg btn-outline-primary col-12">Gestión de productos</a>
+		<a th:href="@{/admin/lista/variantes}" class="btn btn-lg btn-outline-primary col-12 mt-2">Gestión de variantes</a>
+		<a class="btn btn-lg btn-outline-primary col-12 mt-2">Página de ganancias</a>
+		<a class="btn btn-lg btn-outline-primary col-12 mt-2">Lista de ventas</a>
+		<a class="btn btn-lg btn-outline-primary col-12 mt-2">Lista de usuarios</a>
+	</div>
+	
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 </body>

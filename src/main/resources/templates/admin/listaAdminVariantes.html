@@ -15,16 +15,14 @@
 	<!--Tabla marcas-->
 	<div class="row w-75 mx-auto">
 		    <div class="mx-auto col-4">
-		        <h4 class="mx-5">Marcas</h4>
+		        <h4 class="text-center mt-5">Marcas</h4>
 				<a th:href="@{/admin/marca/nuevo}" class="btn btn-info btn-sm">Añadir marca</a>
 		        <table class="w-75 mx-auto shadow-lg">
 		            <tr class="border-bottom">
-		                <td class="col-2"><strong>ID</strong></td>
 		                <td class="col-6"><strong>Marca</strong></td>
 		                <td class="col-4"></td>
 		            </tr>
 		            <tr class="shadow-sm" th:each="marca : ${listaMarcasAdmin}">
-		                <td th:src="${marca.id}">ID</td>
 						<td th:text="${marca.nombre}">Marca</td>
 						<td>
 						    <a th:href="@{/admin/marca/borrar/{id}(id = ${marca.id})}" class="btn btn-danger btn-sm">Borrar</a>
@@ -35,16 +33,14 @@
 			
 			<!--Tabla tallas-->
 					    <div class="mx-auto col-4">
-					        <h4 class="mx-5">Tallas</h4>
+					        <h4 class="text-center mt-5">Tallas</h4>
 							<a th:href="@{/admin/talla/nuevo}" class="btn btn-info btn-sm">Añadir talla</a>
 							<table class="w-75 mx-auto shadow-lg">
 								<tr class="border-bottom">
-									<td class="col-2"><strong>ID</strong></td>
 									<td class="col-6"><strong>Talla</strong></td>
 									<td class="col-4"></td>
 								</tr>
 								<tr class="shadow-sm" th:each="talla : ${listaTallasAdmin}">
-									<td th:src="${talla.id}">ID</td>
 									<td th:text="${talla.nombre}">Marca</td>
 									<td>
 										<a th:href="@{/admin/talla/borrar/{id}(id = ${talla.id})}" class="btn btn-danger btn-sm">Borrar</a>
@@ -54,16 +50,14 @@
 					    </div>
 						<!--Tabla colores-->
 						<div class="mx-auto col-4">
-							<h4 class="mx-5">Colores</h4>
+							<h4 class="text-center mt-5">Colores</h4>
 							<a th:href="@{/admin/color/nuevo}" class="btn btn-info btn-sm">Añadir color</a>
 							<table class="w-75 mx-auto shadow-lg">
 								<tr class="border-bottom">
-									<td class="col-2"><strong>ID</strong></td>
 									<td class="col-6"><strong>Color</strong></td>
 									<td class="col-4"></td>
 								</tr>
 								<tr class="shadow-sm" th:each="color : ${listaColoresAdmin}">
-									<td th:src="${color.id}">ID</td>
 									<td th:text="${color.nombre}">Color</td>
 									<td>
 										<a th:href="@{/admin/color/borrar/{id}(id = ${color.id})}" class="btn btn-danger btn-sm">Borrar</a>
