@@ -35,20 +35,26 @@ public class UsuarioController {
 			usuarioService.save(usuario);
 			return "redirect:/login";
 		} else {
-			return "redirect:/usuario/nuevo";
+			return "redirect:/usuario/nuevo?error=true";
 		}
 	}
 	
 	@GetMapping("/editar")
 	public String editUser(@AuthenticationPrincipal Usuario usuario, Model model) {
 		model.addAttribute("usuario", usuario);
-		return "formularioRegistroUsuario";
+		return "editarUsuario";
 	}
 	
 	@PostMapping("/editar/submit")
 	public String submitEditUserById(@ModelAttribute("usuario") Usuario usuario) {
-		usuarioService.edit(usuario);
-		return "redirect:/usuario/perfil";
+		Optional<Usuario> existingUser = usuarioService.findIfUsernameExists(usuario.getUsername());
+		if(existingUser.isEmpty()) {
+			usuarioService.edit(usuario);
+			return "redirect:/usuario/perfil";
+		} else {
+			return "redirect:/usuario/editar?error=true";
+		}
+		
 	}
 	
 	@GetMapping("/perfil")

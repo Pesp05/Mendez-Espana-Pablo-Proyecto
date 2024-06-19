@@ -12,6 +12,11 @@
 	
 	<nav th:replace="~{fragmentos/userNavbar::userNavbar}"></nav>
 	
+	<div class="alert alert-danger alert-dismissible fade show mb-5" th:if="${param.error}">
+		<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		<h5 class="m-0"><strong><i class="bi bi-exclamation-diamond-fill"></i></strong>Nombre de usuario en uso</h5>
+	</div>
+	
 	<div class="row">
 		<div th:replace="~{fragmentos/userProfileAside::userProfileAside}"></div>
 		<div class="card bg-secondary mb-3 mx-auto shadow-lg col-4" style="height: 400px; margin-top: 50px;">
