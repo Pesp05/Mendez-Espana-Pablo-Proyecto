@@ -27,7 +27,7 @@
 							<td th:text="${venta.id}">ID</td>
 							<td th:text="${#numbers.formatDecimal(venta.precioTotal, 1, 2)}+'€'">Precio</td>
 							<td th:text="${venta.fecha}">Fecha</td>
-							<td><a class="btn btn-success btn-sm" th:href="@{/venta/ver/deetalles/{id}(id = ${venta.id})}">Ver</a></td>
+							<td><a class="btn btn-success btn-sm" th:href="@{/venta/ver/detalles/{id}(id = ${venta.id})}">Ver</a></td>
 			            </tr>
 			            <tr>
 			

@@ -99,7 +99,7 @@ public class VentaController {
 		return "listadoVentasUsuario";
 	}
 	
-	@GetMapping("/venta/ver/deetalles/{id}")
+	@GetMapping("/venta/ver/detalles/{id}")
 	public String showDetailedVenta(@PathVariable("id") Long idVenta, Model model) {
 		Optional<Venta> optVenta = ventaService.findById(idVenta);
 		if(optVenta.isPresent()) {
