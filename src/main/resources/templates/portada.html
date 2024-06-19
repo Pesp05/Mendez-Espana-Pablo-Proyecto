@@ -47,19 +47,30 @@
 	        </button>
 	    </div>
 		
-		<div class="w-25 shadow bg-dark mx-auto">
-			<div class="row" style="height: 50px; text-align: center;" data-aos="fade-right">
-				<h4 class="text-light" style="margin-top: auto;">LOS MEJORES COMPONENTES</h4>
-			</div>
-			<div class="row" style="height: 50px; text-align: center;" data-aos="fade-left">
-				<h4 class="text-light" style="margin-top: auto;">LAS MEJORES BICICLETAS</h4>			
-			</div>
-			<div class="row" style="height: 50px; text-align: center;" data-aos="fade-right">
-				<h4 class="text-light" style="margin-top: auto;">TODO LO QUE UN CICLISTA NECESITA</h4>		
-			</div>
-			<div class="row" data-aos="fade-up">
-				<a th:href="@{/producto/vista/BICICLETAS}" class="btn btn-success">COMPRA YA</a>			
-			</div>
+		<h1 class="text-center mt-5">Nuestros Productos Más Baratos!!!</h1>
+		
+		<div class="w-50 shadow bg-dark mx-auto">
+			<div data-aos="flip-up">
+					<div class="container mt-5">
+					        <div class="row justify-content-center">
+					            <div class="col-md-9">
+					                <div class="row row-cols-1 row-cols-md-3 g-4">
+					                    <div th:each="producto : ${listaMasBaratos}" class="col">
+					                        <div class="card h-100">
+					                            <img th:src="@{${producto.imagen}}" class="card-img-top" alt="Imagen del Producto">
+					                            <div class="card-body">
+					                                <h5 th:text="${producto.nombre}" class="card-title"></h5>
+					                                <p th:text="${'Precio: €' + producto.precioVenta}" class="card-text"></p>
+					                                <p th:text="${producto.descripcion}" class="card-text"></p>
+					                                <a th:href="@{/producto/{id}(id = ${producto.id})}" class="btn btn-primary">Ver Detalles</a>
+					                            </div>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					</div>
+				</div>
 		</div>
 	
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>

@@ -35,4 +35,8 @@ public class ProductoService extends BaseServiceImpl<Producto, Long, ProductoRep
 		return repository.siProductoEnLineaDeVenta(id);
 	}
 	
+	public List<Producto> buscar6MasBaratos(){
+		return repository.buscar6MasBaratos();
+	}
+	
 }

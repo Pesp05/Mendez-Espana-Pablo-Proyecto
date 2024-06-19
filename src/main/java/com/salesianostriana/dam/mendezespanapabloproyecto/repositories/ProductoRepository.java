@@ -27,4 +27,12 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>{
 	@Query("select p.lineasVenta from Producto p where p.id = :idProducto")
 	public List<LineaVenta> siProductoEnLineaDeVenta(@Param("idProducto") Long idProducto);
 	
+	@Query("""
+			SELECT p
+			FROM Producto p
+			ORDER BY precioVenta
+			LIMIT 6
+			""")
+    public List<Producto> buscar6MasBaratos();
+	
 }
