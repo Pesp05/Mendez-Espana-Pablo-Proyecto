@@ -9,6 +9,7 @@ import com.salesianostriana.dam.mendezespanapabloproyecto.model.Color;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.LineaVenta;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Talla;
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.Usuario;
 import com.salesianostriana.dam.mendezespanapabloproyecto.repositories.ProductoRepository;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.base.BaseServiceImpl;
 
@@ -37,6 +38,14 @@ public class ProductoService extends BaseServiceImpl<Producto, Long, ProductoRep
 	
 	public List<Producto> buscar6MasBaratos(){
 		return repository.buscar6MasBaratos();
+	}
+	
+	public List<Producto> buscar3MasVendidos(){
+		return repository.buscar3MasVendidos();
+	}
+	
+	public Usuario buscarBestUser() {
+		return repository.bestUser();
 	}
 	
 }

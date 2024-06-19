@@ -9,6 +9,7 @@ import com.salesianostriana.dam.mendezespanapabloproyecto.model.Color;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.LineaVenta;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Talla;
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.Usuario;
 
 public interface ProductoRepository extends JpaRepository<Producto, Long>{
 	
@@ -34,5 +35,26 @@ public interface ProductoRepository extends JpaRepository<Producto, Long>{
 			LIMIT 6
 			""")
     public List<Producto> buscar6MasBaratos();
+	
+	@Query("""
+			SELECT p
+			FROM Producto p
+			JOIN LineaVenta lv ON p.id = lv.producto.id
+			GROUP BY p.id 
+			ORDER BY SUM(lv.cantidad) DESC
+			LIMIT 3
+			""")
+	public List<Producto> buscar3MasVendidos();
+	
+	@Query("""
+			SELECT u 
+			FROM Usuario u
+			JOIN Venta v ON u.id = v.usuario.id
+			GROUP BY u.id
+			ORDER BY COUNT(v.id) DESC
+			LIMIT 1
+			""")
+	public Usuario bestUser();
+
 	
 }
