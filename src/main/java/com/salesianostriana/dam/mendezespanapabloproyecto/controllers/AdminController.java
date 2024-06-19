@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.LineaVenta;
+import com.salesianostriana.dam.mendezespanapabloproyecto.model.Producto;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Usuario;
 import com.salesianostriana.dam.mendezespanapabloproyecto.model.Venta;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ColorService;
+import com.salesianostriana.dam.mendezespanapabloproyecto.services.LineaVentaService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.MarcaService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.ProductoService;
 import com.salesianostriana.dam.mendezespanapabloproyecto.services.TallaService;
@@ -41,6 +43,9 @@ public class AdminController {
 	
 	@Autowired
 	private VentaService ventaService;
+	
+	@Autowired
+	private LineaVentaService lineaVentaService;
 
 	@GetMapping("/menu")
 	public String showAdminMenu() {
@@ -96,6 +101,25 @@ public class AdminController {
 		} else {
 			throw new IllegalArgumentException("no se encuentra la venta");
 		}
+	}
+	
+	@GetMapping("/vista/ganancias")
+	public String showStatsAndGains(Model model) {
+		List<Producto> top3Vendidos = productoService.buscar3MasVendidos();
+		Usuario bestUser = productoService.buscarBestUser();
+		List<LineaVenta> listaLineasVenta = lineaVentaService.findAll();
+		double gananciaTotal;
+		double precioFabricaTotal = 0;
+		double precioVentaTotal = 0;
+		for(LineaVenta lineaVenta : listaLineasVenta) {
+			precioFabricaTotal = precioFabricaTotal + lineaVenta.getProducto().getPrecioFabrica();
+			precioVentaTotal = precioVentaTotal + lineaVenta.getProducto().getPrecioVenta();
+		}
+		gananciaTotal = precioVentaTotal - precioFabricaTotal;
+		model.addAttribute("top3Vendidos", top3Vendidos);
+		model.addAttribute("bestUser", bestUser);
+		model.addAttribute("ganancia", gananciaTotal);
+		return "admin/ganancias";
 	}
 	
 }
