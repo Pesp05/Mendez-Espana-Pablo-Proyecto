@@ -19,7 +19,7 @@
 	
 	<!--Tabla-->
 		    <div class="mx-auto w-75 align-items-center">
-				<h2 class="mx-3 mb-0">Productos</h2>
+				<h2 class="text-center mt-5">Productos</h2>
 		        <table class="w-75 mx-auto shadow-lg">
 		            <tr class="border-bottom">
 		                <td class="col-1"><strong>Imagen</strong></td>
@@ -56,7 +56,7 @@
 		            </tr>
 		        </table>
 		    </div>
-			<div class="row w-50 mx-auto">
+			<div class="row w-50 mx-auto mt-5">
 				<a class="btn btn-outline-secondary col-4" th:href="@{/producto/vista/BICICLETAS}">Seguir comprando</a>
 				<h1 class="col-4 text-center" th:text="${venta.precioTotal}+'€'">Precio Total</h1>
 				<a class="btn btn-outline-success col-4" th:href="@{/carrito/finalizarVenta}">Confirmar compra</a>
